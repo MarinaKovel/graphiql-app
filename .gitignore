@@ -28,3 +28,4 @@ cypress/videos
 *.sw?
 package-lock.json
 .npmrc
+*.local
