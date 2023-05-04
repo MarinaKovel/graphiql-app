@@ -28,6 +28,8 @@
     "sass": "^1.62.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.6.1",
+    "@commitlint/config-angular": "^17.6.1",
     "@cypress/code-coverage": "^3.10.4",
     "@cypress/react": "^7.0.3",
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
@@ -66,5 +68,10 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "husky": {
+      "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      }
   }
 }

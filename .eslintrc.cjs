@@ -47,6 +47,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'import/no-default-export': 'error',
     'import/extensions': 'off',
+    'react/function-component-definition': 'off',
   },
   settings: {
     react: {

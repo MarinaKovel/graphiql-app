@@ -24,6 +24,7 @@
     "vite.config.ts",
     ".eslintrc.cjs",
     "styled.d.ts",
+    "commitlint.config.js",
     "cypress.config.ts",
     "src",
     "cypress"
