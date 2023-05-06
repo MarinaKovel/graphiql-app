@@ -20,7 +20,7 @@ export const Header: FC = () => {
   return (
     <header className={`header ${navbarBackground}`}>
       <Link to={RoutePath.HOME} className="header__logo">
-        <h1 className="header__logo-title">GraphQL</h1>
+        <h1 className="header__logo-title">GraphiQL</h1>
         <img className="header__logo-img" src={logo} alt="logo" />
       </Link>
       <nav className="header__nav">
