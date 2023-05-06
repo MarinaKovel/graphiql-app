@@ -1,7 +1,6 @@
 .root-layout {
   position: relative;
-}
-
-.main {
-  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

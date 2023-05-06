@@ -1,7 +1,7 @@
-@import '@/constants.scss';
+@import '@/styles/constants.scss';
 
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   color: $text-color;
@@ -16,6 +16,7 @@
     display: flex;
     gap: 5px;
     color: $text-color-title;
+    line-height: 40px;
     &-img {
       width: 40px;
       height: 40px;

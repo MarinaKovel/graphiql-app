@@ -8,13 +8,7 @@ import { Suspense } from 'react';
 import { SyncLoader } from 'react-spinners';
 import { Layout } from './components/layout/index';
 import { Home, Auth, Editor, NotFound } from '@/pages';
-
-export enum RoutePath {
-  HOME = '/',
-  AUTH = '/auth',
-  EDITOR = '/editor',
-  NOT_FOUND = '*',
-}
+import { RoutePath } from './utils/enum';
 
 const router = createBrowserRouter(
   createRoutesFromElements(

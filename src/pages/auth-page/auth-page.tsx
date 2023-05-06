@@ -1,3 +1,5 @@
-export const Auth: React.FC = () => {
+import { FC } from 'react';
+
+export const Auth: FC = () => {
   return <div>Auth</div>;
 };
