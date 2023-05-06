@@ -1,0 +1,34 @@
+@import '@/styles/constants.scss';
+
+.editor-section {
+  position: relative;
+  height: 55vh;
+  width: 35%;
+  min-width: 300px;
+  background-color: $third-color-light;
+  border-radius: 20px;
+  color: $text-color-title;
+  box-shadow: $box-shadow-light;
+}
+.editor-section__request {
+  padding: 15px;
+}
+.editor-section__variable {
+  position: absolute;
+  bottom: 0;
+  padding: 15px;
+  padding-top: 5px;
+  width: 100%;
+  border-top: 1px solid $fourth-color-light;
+}
+.request__edit {
+  width: 100%;
+  height: 9em;
+  resize: none;
+  color: $text-color;
+}
+.request__variables {
+  width: 100%;
+  height: 4em;
+  resize: none;
+}

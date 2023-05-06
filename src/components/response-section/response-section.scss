@@ -1,0 +1,12 @@
+@import '@/styles/constants.scss';
+
+.response {
+  height: 55vh;
+  width: 35%;
+  min-width: 300px;
+  background-color: $fourth-color-light;
+  border-radius: 20px;
+  box-shadow: $box-shadow-light;
+  color: $text-color-title;
+  padding: 15px;
+}

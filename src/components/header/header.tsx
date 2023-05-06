@@ -2,7 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useState, useEffect, FC } from 'react';
 import { ToggleDayNight } from '../toggle-day-night/toggle-day-night';
 import logo from '@/assets/logo2.png';
-import { RoutePath } from '@/App';
+import { RoutePath } from '@/utils/enum';
 import { LanguageButton } from '../language-button';
 import './header.scss';
 
