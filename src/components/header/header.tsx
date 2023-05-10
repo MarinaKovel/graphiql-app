@@ -20,19 +20,19 @@ export const Header: FC = () => {
   return (
     <header className={`header ${navbarBackground}`}>
       <Link to={RoutePath.HOME} className="header__logo">
-        <h1 className="header__logo-title">GraphiQL</h1>
-        <img className="header__logo-img" src={logo} alt="logo" />
+        <h2 className="header__title">GraphiQL</h2>
+        <img className="header__img" src={logo} alt="logo" />
       </Link>
       <nav className="header__nav">
-        <div className="header__nav-buttons">
-          <Link to={RoutePath.AUTH} className="header__nav-btn">
+        <div className="header__buttons">
+          <Link to={RoutePath.AUTH} className="header__btn">
             Sign In
           </Link>
-          <Link to={RoutePath.AUTH} className="header__nav-btn">
+          <Link to={RoutePath.AUTH} className="header__btn">
             Sign Up
           </Link>
         </div>
-        <div className="header__nav-links">
+        <div className="header__links">
           <NavLink to={RoutePath.HOME}>Home</NavLink>
           <NavLink to={RoutePath.AUTH}>Auth</NavLink>
           <NavLink to={RoutePath.EDITOR}>Editor</NavLink>

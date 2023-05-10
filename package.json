@@ -16,6 +16,7 @@
     "cy:e2e": "start-server-and-test dev http-get://localhost:5173 cy:open-e2e"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
