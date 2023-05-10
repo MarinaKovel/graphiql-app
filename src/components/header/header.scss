@@ -17,50 +17,52 @@
     gap: 5px;
     color: $text-color-title;
     line-height: 40px;
-    &-img {
-      width: 40px;
-      height: 40px;
-    }
+  }
+
+  &__img {
+    width: 40px;
+    height: 40px;
   }
 
   &__nav {
     display: flex;
     flex-direction: column;
     gap: 5px;
+  }
 
-    &-buttons {
-      display: flex;
-      justify-content: space-between;
+  &__btn {
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    margin: 0 5px;
+    width: 80px;
+    padding: 10px 0;
+    transition: 0.4s;
+    text-align: center;
+
+    &:hover {
+      color: $color-white;
+      box-shadow: 0 0 20px rgba(111, 117, 225, 0.6);
+      background-color: $hover-button-light;
     }
 
-    &-links {
-      display: flex;
-      justify-content: space-between;
-
-      a {
-        &:hover {
-          color: $hover-button-light;
-        }
-      }
+    &:active {
+      background-color: #5c7487;
     }
-    &-btn {
-      cursor: pointer;
-      border: 0;
-      border-radius: 4px;
-      margin: 0 5px;
-      width: 80px;
-      padding: 10px 0;
-      transition: 0.4s;
-      text-align: center;
+  }
 
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+
+    a {
       &:hover {
-        color: $color-white;
-        box-shadow: 0 0 20px rgba(111, 117, 225, 0.6);
-        background-color: $hover-button-light;
-      }
-
-      &:active {
-        background-color: #5c7487;
+        color: $hover-button-light;
       }
     }
   }
@@ -82,5 +84,6 @@
   &__sticky {
     background: $secondary-color-light;
     box-shadow: $box-shadow-light;
+    opacity: 0.95;
   }
 }
