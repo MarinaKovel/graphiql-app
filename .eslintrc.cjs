@@ -15,7 +15,7 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ['src/reducers/**/.ts', 'vite.config.ts'],
+      files: ['src/slices/*.ts', 'vite.config.ts'],
       rules: {
         'import/no-default-export': 'off',
       },
@@ -48,6 +48,7 @@ module.exports = {
     'import/no-default-export': 'error',
     'import/extensions': 'off',
     'react/function-component-definition': 'off',
+    'no-param-reassign': 'off',
   },
   settings: {
     react: {
