@@ -1,0 +1,49 @@
+@import '@/styles/constants.scss';
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+  
+  &__title {
+    font-size: $fs-xxxl;
+    margin: 0;
+  }
+
+  &__link {
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    margin: 0px 5px;
+    width: 120px;
+    padding: 10px 0;
+    transition: 0.4s;
+    text-align: center;
+    background-color: $hover-button-light;
+    color: $color-white;
+
+    &:hover {
+      box-shadow: 0 0 20px rgba(111, 117, 225, 0.6);
+    }
+
+    &:active {
+      background-color: #5c7487;
+    }
+  }
+
+  &__text {
+    font-size: $fs-m;
+    width: 50%;
+    margin: 8px auto 24px;
+    text-align: center;
+  }
+
+  &__img {
+    width: 280px;
+  }
+}
