@@ -5,11 +5,11 @@ export const EditorSection: FC = () => {
   return (
     <section className="editor-section">
       <div className="editor-section__request">
-        <textarea className="request__edit">query</textarea>
+        <textarea className="edit" defaultValue="query" />
       </div>
-      <div className="editor-section__variable">
+      <div className="editor-section__variables">
         <p>Variables</p>
-        <textarea className="request__variables" />
+        <textarea className="variables" />
       </div>
     </section>
   );
