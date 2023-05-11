@@ -38,7 +38,7 @@ export const DeveloperCards: FC = () => {
           <CardHeader
             title={developer.name}
             subheader={developer.subheader}
-            titleTypographyProps={{ align: 'center' }}
+            titleTypographyProps={{ align: 'center', fontSize: '15' }}
             subheaderTypographyProps={{ align: 'center' }}
             className={classes.cardHeader}
           />
