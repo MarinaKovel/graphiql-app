@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardContent, CardMedia, CardHeader, Button, Link } from '@material-ui/core';
+import { Card, CardContent, CardMedia, CardHeader, Link } from '@material-ui/core';
 import { developers } from '@/utils/const';
+import { CustomBtn } from '../custom-btn';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[700],
   },
+  link: {
+    color: 'white',
+  },
 }));
 
 export const DeveloperCards: FC = () => {
@@ -44,11 +48,17 @@ export const DeveloperCards: FC = () => {
           />
           <CardMedia className={classes.media} image={developer.image} title={developer.name} />
           <CardContent className={classes.buttonBlock}>
-            <Button style={{ width: 200 }} variant="outlined" color="primary">
-              <Link href={developer.github} target="_blank" rel="noopener" underline="none">
+            <CustomBtn btnType="button">
+              <Link
+                href={developer.github}
+                className={classes.link}
+                target="_blank"
+                rel="noopener"
+                underline="none"
+              >
                 GitHub
               </Link>
-            </Button>
+            </CustomBtn>
           </CardContent>
         </Card>
       ))}
