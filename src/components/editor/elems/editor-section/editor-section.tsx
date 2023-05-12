@@ -1,15 +1,16 @@
 import { FC } from 'react';
+import { TextareaAutosize } from '@mui/base';
 import './editor-section.scss';
 
 export const EditorSection: FC = () => {
   return (
     <section className="editor-section">
       <div className="editor-section__request">
-        <textarea className="request__edit">query</textarea>
+        <TextareaAutosize minRows={9} maxRows={9} className="edit" defaultValue="query" />
       </div>
-      <div className="editor-section__variable">
+      <div className="editor-section__variables">
         <p>Variables</p>
-        <textarea className="request__variables" />
+        <TextareaAutosize maxRows={1} className="variables" />
       </div>
     </section>
   );

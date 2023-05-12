@@ -1,15 +1,13 @@
-import { FC } from 'react';
-import { DocsSection } from '@/components/docs-section';
-import { EditorSection } from '@/components/editor-section';
-import { ResponseSection } from '@/components/response-section';
+import { FC, useEffect } from 'react';
+import { getSchema } from '@/server/schema';
+import { Editor } from '@/components/editor';
 import './editor-page.scss';
 
-export const Editor: FC = () => {
-  return (
-    <div className="editor">
-      <EditorSection />
-      <ResponseSection />
-      <DocsSection />
-    </div>
-  );
+export const EditorPage: FC = () => {
+  const [schema, { isError }] = getSchema.useFetchSchemaMutation();
+  useEffect(() => {
+    schema('data');
+  }, []);
+
+  return <Editor />;
 };

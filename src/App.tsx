@@ -7,7 +7,7 @@ import {
 import { Suspense } from 'react';
 import { SyncLoader } from 'react-spinners';
 import { Layout } from './components/layout/index';
-import { Home, Auth, Editor, NotFound } from '@/pages';
+import { Home, Auth, EditorPage, NotFound } from '@/pages';
 import { RoutePath } from './utils/enum';
 
 const router = createBrowserRouter(
@@ -15,7 +15,7 @@ const router = createBrowserRouter(
     <Route path={RoutePath.HOME} element={<Layout />}>
       <Route index element={<Home />} />
       <Route path={RoutePath.AUTH} element={<Auth />} />
-      <Route path={RoutePath.EDITOR} element={<Editor />} />
+      <Route path={RoutePath.EDITOR} element={<EditorPage />} />
       <Route path={RoutePath.NOT_FOUND} element={<NotFound />} />
     </Route>
   )
