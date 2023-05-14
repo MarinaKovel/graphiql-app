@@ -1,13 +1,19 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import themeReducer from '@/slices/themeSlice';
+import { combineReducers, configureStore, PreloadedState } from '@reduxjs/toolkit';
+import { getSchema } from './server/schema';
+import themeReducer from '@/slices/theme-slice';
+import userReducer from '@/slices/user-slice';
 
 const rootReducer = combineReducers({
   themeReducer,
+  userReducer,
+  [getSchema.reducerPath]: getSchema.reducer,
 });
 
-export const setupStore = () => {
+export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
     reducer: rootReducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(getSchema.middleware),
+    preloadedState,
   });
 };
 

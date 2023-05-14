@@ -1,3 +1,4 @@
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import { introspectionQueryBody } from '@/utils/const';
 
 type TSchemaEnumValues = {
@@ -33,16 +34,19 @@ export type TSchema = {
   };
 };
 
-export const API = {
-  getSchema() {
-    return fetch(`https://rickandmortyapi.com/graphql`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(introspectionQueryBody),
-    })
-      .then((response: Response): Promise<Partial<TSchema>> => response.json())
-      .catch((error: Error) => console.log(error));
-  },
-};
+export const getSchema = createApi({
+  reducerPath: 'schema',
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://rickandmortyapi.com/',
+  }),
+  endpoints: (build) => ({
+    fetchSchema: build.mutation<TSchema, string>({
+      query: () => ({
+        url: `graphql`,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(introspectionQueryBody),
+      }),
+    }),
+  }),
+});

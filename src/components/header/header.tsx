@@ -1,13 +1,19 @@
-import { Link, NavLink } from 'react-router-dom';
 import { useState, useEffect, FC } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { ToggleDayNight } from '../toggle-day-night/toggle-day-night';
-import logo from '@/assets/logo2.png';
+import logo from '@/assets/icons/logo2.png';
 import { RoutePath } from '@/utils/enum';
 import { LanguageButton } from '../language-button';
+import { auth } from '@/server/firebase';
+import { UserMenu } from '../user-menu';
+import { useAppSelector } from '@/hooks/redux';
 import './header.scss';
 
 export const Header: FC = () => {
+  const [user] = useAuthState(auth);
   const [isUpOfPage, setIsUpOfPage] = useState<boolean>(true);
+  const currUser = useAppSelector((state) => state.userReducer);
 
   useEffect(() => {
     const handleScroll = () => (window.scrollY === 0 ? setIsUpOfPage(true) : setIsUpOfPage(false));
@@ -24,21 +30,32 @@ export const Header: FC = () => {
         <img className="header__img" src={logo} alt="logo" />
       </Link>
       <nav className="header__nav">
-        <div className="header__buttons">
-          <Link to={RoutePath.AUTH} className="header__btn">
-            Sign In
-          </Link>
-          <Link to={RoutePath.AUTH} className="header__btn">
-            Sign Up
-          </Link>
-        </div>
         <div className="header__links">
-          <NavLink to={RoutePath.HOME}>Home</NavLink>
-          <NavLink to={RoutePath.AUTH}>Auth</NavLink>
-          <NavLink to={RoutePath.EDITOR}>Editor</NavLink>
+          <NavLink className="header__link" to={RoutePath.HOME}>
+            Home
+          </NavLink>
+          {user && (
+            <NavLink className="header__link" to={RoutePath.EDITOR}>
+              Editor
+            </NavLink>
+          )}
         </div>
       </nav>
+
       <div className="header__tumblers">
+        {user ? (
+          <UserMenu email={currUser.email} />
+        ) : (
+          <>
+            <Link className="header__link" to={RoutePath.LOGIN} state={{ isLogin: true }}>
+              Sign In
+            </Link>
+
+            <Link className="header__link" to={RoutePath.SIGN_UP}>
+              Sign Up
+            </Link>
+          </>
+        )}
         <LanguageButton />
         <ToggleDayNight />
       </div>

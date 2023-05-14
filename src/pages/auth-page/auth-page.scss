@@ -1,0 +1,19 @@
+@import '@/styles/constants.scss';
+
+.auth {
+  &__title {
+    text-align: center;
+    font-size: $fs-xxl;
+    margin: 0;
+    margin-bottom: 30px;
+  }
+
+  &__btns {
+    text-align: center;
+  }
+
+  &__variant {
+    color: $hover-button-light;
+    margin-left: 5px;
+  }
+}

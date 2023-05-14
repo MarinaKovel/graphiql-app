@@ -1,32 +1,34 @@
 import { FC, useEffect } from 'react';
-import { DocsSection } from '@/components/docs-section';
-import { EditorSection } from '@/components/editor-section';
-import { ResponseSection } from '@/components/response-section';
-import { API, TSchema } from '@/server/schema';
+import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { getSchema } from '@/server/schema';
+import { Editor } from '@/components/editor';
+import { auth } from '@/server/firebase';
+import { RoutePath } from '@/utils/enum';
+import { setUser } from '@/slices/user-slice';
+import { useAppDispatch } from '@/hooks/redux';
 import './editor-page.scss';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { themeSlice } from '@/slices/themeSlice';
 
-export const Editor: FC = () => {
-  const { theme } = useAppSelector((state) => state.themeReducer);
-  const { increment } = themeSlice.actions;
-  const dispatch = useAppDispatch();
-
+export const EditorPage: FC = () => {
+  const [schema, { isError }] = getSchema.useFetchSchemaMutation();
   useEffect(() => {
-    API.getSchema().then((data: void | Partial<TSchema>) => {
-      console.log(data);
-    });
+    schema('data');
   }, []);
 
-  return (
-    <div className="editor">
-      <h1>{theme}</h1>
-      <button type="button" onClick={() => dispatch(increment('dark'))}>
-        Change theme
-      </button>
-      <EditorSection />
-      <ResponseSection />
-      <DocsSection />
-    </div>
-  );
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const [user, loading] = useAuthState(auth);
+
+  useEffect(() => {
+    if (loading) return;
+    if (!user) {
+      navigate(RoutePath.HOME, { replace: true });
+    } else {
+      dispatch(setUser({ id: user.uid, email: user.email }));
+    }
+  }, [user, dispatch, loading, navigate]);
+
+  return <Editor />;
 };

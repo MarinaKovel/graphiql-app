@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import './response-section.scss';
+import './editor-response-section.scss';
 
-export const ResponseSection: FC = () => {
+export const EditorResponseSection: FC = () => {
   return <section className="response">Response section</section>;
 };

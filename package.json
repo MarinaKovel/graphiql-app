@@ -16,7 +16,12 @@
     "cy:e2e": "start-server-and-test dev http-get://localhost:5173 cy:open-e2e"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
     "@material-ui/core": "^4.12.4",
+    "@mui/base": "^5.0.0-beta.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.0",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/react-redux": "^7.1.25",
     "axios": "^1.4.0",
@@ -26,6 +31,7 @@
     "react": "^18.2.0",
     "react-day-and-night-toggle": "^1.0.18",
     "react-dom": "^18.2.0",
+    "react-firebase-hooks": "^5.1.1",
     "react-hook-form": "^7.43.9",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.0",
