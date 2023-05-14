@@ -3,11 +3,13 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 type User = {
   email: string;
   id: string;
+  isAuth: boolean;
 };
 
 const initialState: User = {
   email: '',
   id: '',
+  isAuth: false,
 };
 
 const userSlice = createSlice({
@@ -15,7 +17,8 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action: PayloadAction<User>) => {
-      return action.payload;
+      state = action.payload;
+      return state;
     },
     removeUser: () => {
       return initialState;
