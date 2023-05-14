@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import language from '@/assets/language.png';
+import { FC } from 'react';
+import language from '@/assets/icons/language.png';
 
 export const LanguageButton: FC = () => {
   return (
