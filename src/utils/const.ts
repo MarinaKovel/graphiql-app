@@ -1,3 +1,11 @@
+import { CSSProperties } from 'react';
+
+export const override: CSSProperties = {
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: '10%',
+};
+
 export const developers = [
   {
     name: 'Vladimir',

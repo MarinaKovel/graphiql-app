@@ -12,9 +12,12 @@ export const SignUp: FC = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const { user } = userCredential;
-        dispatch(setUser({ id: user.uid, email: user.email }));
+        if (user && user.email) {
+          dispatch(setUser({ id: user.uid, email: user.email, isAuth: true }));
+        }
       })
       .catch((error) => {
+        // TODO validation
         const errorCode = error.code;
         const errorMessage = error.message;
       });

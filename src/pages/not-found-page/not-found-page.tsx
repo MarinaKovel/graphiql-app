@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { CustomBtn } from '@/components/custom-btn';
 import './not-found-page.scss';
+import { RoutePath } from '@/utils/enum';
 
 export const NotFound: FC = () => {
   return (
@@ -13,9 +15,10 @@ export const NotFound: FC = () => {
       <h2 className="error-page__title"> 404 Error </h2>
       <h3>Page not found</h3>
       <p className="error-page__text"> Sorry, this page isn`t available </p>
-      <Link to="/" className="error-page__link">
-        Back to home
-      </Link>
+
+      <CustomBtn btnType="button">
+        <Link to={RoutePath.NOT_FOUND}>Back to home</Link>
+      </CustomBtn>
     </section>
   );
 };

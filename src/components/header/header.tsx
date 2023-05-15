@@ -1,19 +1,16 @@
 import { useState, useEffect, FC } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { ToggleDayNight } from '../toggle-day-night/toggle-day-night';
 import logo from '@/assets/icons/logo2.png';
 import { RoutePath } from '@/utils/enum';
 import { LanguageButton } from '../language-button';
-import { auth } from '@/server/firebase';
 import { UserMenu } from '../user-menu';
 import { useAppSelector } from '@/hooks/redux';
 import './header.scss';
 
 export const Header: FC = () => {
-  const [user] = useAuthState(auth);
   const [isUpOfPage, setIsUpOfPage] = useState<boolean>(true);
-  const currUser = useAppSelector((state) => state.userReducer);
+  const { isAuth, email } = useAppSelector((state) => state.user);
 
   useEffect(() => {
     const handleScroll = () => (window.scrollY === 0 ? setIsUpOfPage(true) : setIsUpOfPage(false));
@@ -34,7 +31,7 @@ export const Header: FC = () => {
           <NavLink className="header__link" to={RoutePath.HOME}>
             Home
           </NavLink>
-          {user && (
+          {isAuth && (
             <NavLink className="header__link" to={RoutePath.EDITOR}>
               Editor
             </NavLink>
@@ -43,8 +40,8 @@ export const Header: FC = () => {
       </nav>
 
       <div className="header__tumblers">
-        {user ? (
-          <UserMenu email={currUser.email} />
+        {isAuth ? (
+          <UserMenu email={email} />
         ) : (
           <>
             <Link className="header__link" to={RoutePath.LOGIN} state={{ isLogin: true }}>

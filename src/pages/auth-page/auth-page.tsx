@@ -1,20 +1,19 @@
 import { FC, useEffect } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { RoutePath } from '@/utils/enum';
-import { auth } from '@/server/firebase';
+import { useAppSelector } from '@/hooks/redux';
 import './auth-page.scss';
 
 export const Auth: FC = () => {
   const location = useLocation();
-  const [user] = useAuthState(auth);
   const navigate = useNavigate();
+  const { isAuth } = useAppSelector((state) => state.user);
 
   useEffect(() => {
-    if (user) {
+    if (isAuth) {
       navigate(RoutePath.EDITOR, { replace: true });
     }
-  }, [user, navigate]);
+  }, [isAuth, navigate]);
 
   return (
     <section className="auth">
