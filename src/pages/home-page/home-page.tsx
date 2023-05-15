@@ -1,12 +1,8 @@
-import { FC, useEffect } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { auth } from '@/server/firebase';
-import { setUser } from '@/slices/user-slice';
 import { DeveloperCards } from '@/components/developer-cards';
-import { useAppDispatch } from '@/hooks/redux';
 import './home-page.scss';
 
 const useStyles = makeStyles((theme) => ({
@@ -49,16 +45,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const Home: FC = () => {
-  const dispatch = useAppDispatch();
-  const [user] = useAuthState(auth);
-
-  useEffect(() => {
-    if (user) {
-      dispatch(setUser({ id: user.uid, email: user.email }));
-    }
-  }, [user, dispatch]);
-
   const classes = useStyles();
+
   return (
     <>
       <section className="about-app">

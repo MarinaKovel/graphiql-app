@@ -10,7 +10,9 @@ import { Home, Auth, EditorPage, NotFound } from '@/pages';
 import { Layout } from '@/components/layout';
 import { Login } from '@/components/login';
 import { SignUp } from '@/components/sign-up';
+import { PrivateRoute } from '@/components/private-route';
 import { RoutePath } from './utils/enum';
+import { override } from './utils/const';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,7 +22,9 @@ const router = createBrowserRouter(
         <Route path={RoutePath.LOGIN} element={<Login />} />
         <Route path={RoutePath.SIGN_UP} element={<SignUp />} />
       </Route>
-      <Route path={RoutePath.EDITOR} element={<EditorPage />} />
+      <Route path={RoutePath.EDITOR} element={<PrivateRoute />}>
+        <Route index element={<EditorPage />} />
+      </Route>
       <Route path={RoutePath.NOT_FOUND} element={<NotFound />} />
     </Route>
   )
@@ -28,7 +32,7 @@ const router = createBrowserRouter(
 
 export const App: React.FC = () => {
   return (
-    <Suspense fallback={<SyncLoader color="#f4f750" size={25} />}>
+    <Suspense fallback={<SyncLoader color="#f4f750" cssOverride={override} size={25} />}>
       <RouterProvider router={router} />
     </Suspense>
   );

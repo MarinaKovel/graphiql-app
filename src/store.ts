@@ -4,8 +4,8 @@ import themeReducer from '@/slices/theme-slice';
 import userReducer from '@/slices/user-slice';
 
 const rootReducer = combineReducers({
-  themeReducer,
-  userReducer,
+  theme: themeReducer,
+  user: userReducer,
   [getSchema.reducerPath]: getSchema.reducer,
 });
 
