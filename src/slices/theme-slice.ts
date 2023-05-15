@@ -1,21 +1,25 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-type TTheme = {
-  theme: 'light' | 'dark';
+type Theme = {
+  isNightMode: boolean;
 };
 
-const initialState: TTheme = {
-  theme: 'light',
+const localStorageTheme = localStorage && localStorage.getItem('theme');
+const isLightTheme = localStorageTheme === 'light';
+
+const initialState: Theme = {
+  isNightMode: !isLightTheme,
 };
 
 export const themeSlice = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    increment(state, action: PayloadAction<'light' | 'dark'>) {
-      state.theme = action.payload;
+    toggleNightMode(state, action: PayloadAction<boolean>) {
+      state.isNightMode = action.payload;
     },
   },
 });
 
+export const { toggleNightMode } = themeSlice.actions;
 export default themeSlice.reducer;

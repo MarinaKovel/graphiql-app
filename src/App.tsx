@@ -4,7 +4,8 @@ import {
   RouterProvider,
   Route,
 } from 'react-router-dom';
-import { Suspense } from 'react';
+import { FC, Suspense } from 'react';
+import { ThemeProvider, createTheme } from '@material-ui/core';
 import { SyncLoader } from 'react-spinners';
 import { Home, Auth, EditorPage, NotFound } from '@/pages';
 import { Layout } from '@/components/layout';
@@ -12,6 +13,7 @@ import { Login } from '@/components/login';
 import { SignUp } from '@/components/sign-up';
 import { PrivateRoute } from '@/components/private-route';
 import { RoutePath } from './utils/enum';
+import { useAppSelector } from './hooks/redux';
 import { override } from './utils/const';
 
 const router = createBrowserRouter(
@@ -30,10 +32,18 @@ const router = createBrowserRouter(
   )
 );
 
-export const App: React.FC = () => {
+export const App: FC = () => {
+  const { isNightMode } = useAppSelector((state) => state.theme);
+  const theme = createTheme({
+    palette: {
+      type: isNightMode ? 'dark' : 'light',
+    },
+  });
   return (
-    <Suspense fallback={<SyncLoader color="#f4f750" cssOverride={override} size={25} />}>
-      <RouterProvider router={router} />
-    </Suspense>
+    <ThemeProvider theme={theme}>
+      <Suspense fallback={<SyncLoader cssOverride={override} color="#f4f750" size={25} />}>
+        <RouterProvider router={router} />
+      </Suspense>
+    </ThemeProvider>
   );
 };

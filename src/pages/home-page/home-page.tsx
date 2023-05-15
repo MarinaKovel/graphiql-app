@@ -3,6 +3,8 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { DeveloperCards } from '@/components/developer-cards';
+import homelogo from '@/assets/images/homelogo.png';
+import { useAppDispatch } from '@/hooks/redux';
 import './home-page.scss';
 
 const useStyles = makeStyles((theme) => ({
@@ -60,7 +62,7 @@ export const Home: FC = () => {
           </p>
         </div>
         <div className="about-app__logo">
-          <img src="https://classic.yarnpkg.com/assets/feature-reliable.png" alt="app_logo" />
+          <img src={homelogo} alt="app_logo" />
         </div>
       </section>
 

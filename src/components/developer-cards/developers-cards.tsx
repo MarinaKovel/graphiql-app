@@ -14,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
   buttonBlock: {
     display: 'flex',
     justifyContent: 'center',
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[700],
   },
   card: {
     flex: '1 1 300px',
@@ -42,7 +44,7 @@ export const DeveloperCards: FC = () => {
           <CardHeader
             title={developer.name}
             subheader={developer.subheader}
-            titleTypographyProps={{ align: 'center', fontSize: '15' }}
+            titleTypographyProps={{ align: 'center' }}
             subheaderTypographyProps={{ align: 'center' }}
             className={classes.cardHeader}
           />

@@ -9,6 +9,7 @@
   max-width: 760px;
   width: 100%;
   margin: 0 auto;
+  color: var(#{--text-color-default});
 
   &__title {
     font-size: $fs-xxxl;
@@ -26,3 +27,4 @@
     width: 280px;
   }
 }
+

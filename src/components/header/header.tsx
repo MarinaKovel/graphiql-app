@@ -23,8 +23,8 @@ export const Header: FC = () => {
   return (
     <header className={`header ${navbarBackground}`}>
       <Link to={RoutePath.HOME} className="header__logo">
-        <h2 className="header__title">GraphiQL</h2>
         <img className="header__img" src={logo} alt="logo" />
+        <h2 className="header__title">GraphiQL</h2>
       </Link>
       <nav className="header__nav">
         <div className="header__links">
