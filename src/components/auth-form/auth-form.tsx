@@ -8,9 +8,16 @@ import {
   InputLabel,
   FormControl,
 } from '@mui/material';
+import { makeStyles } from '@material-ui/core/styles';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { CustomBtn } from '../custom-btn';
 import './auth-form.scss';
+
+const useStyles = makeStyles((theme) => ({
+  label: {
+    color: theme.palette.text.secondary,
+  },
+}));
 
 type FormProps = {
   title: string;
@@ -18,6 +25,7 @@ type FormProps = {
 };
 
 export const AuthForm: FC<FormProps> = ({ title, handleClick }) => {
+  const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -43,10 +51,22 @@ export const AuthForm: FC<FormProps> = ({ title, handleClick }) => {
         variant="outlined"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        InputLabelProps={{
+          classes: {
+            root: classes.label,
+          },
+        }}
       />
 
       <FormControl variant="outlined">
-        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+        <InputLabel
+          htmlFor="outlined-adornment-password"
+          classes={{
+            root: classes.label,
+          }}
+        >
+          Password
+        </InputLabel>
         <OutlinedInput
           id="outlined-adornment-password"
           type={showPassword ? 'text' : 'password'}

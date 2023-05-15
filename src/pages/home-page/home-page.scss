@@ -38,7 +38,7 @@
 .member-title {
   line-height: 1.5;
   letter-spacing: 0.1px;
-  color: $text-color;
+  color: var(#{--text-color-default});
   font-weight: $fw-regular;
   text-align: center;
 
