@@ -33,7 +33,7 @@ export const Header: FC = () => {
           </NavLink>
           {isAuth && (
             <NavLink className="header__link" to={RoutePath.EDITOR}>
-              Editor
+              GraphiQL
             </NavLink>
           )}
         </div>
