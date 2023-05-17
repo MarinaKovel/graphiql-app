@@ -1,4 +1,5 @@
-import { FC } from 'React';
+import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { IconButton, Drawer, Divider, useTheme } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -9,6 +10,7 @@ type TDrawerProps = {
 };
 
 export const EditorDrawer: FC<TDrawerProps> = ({ open, toggleDrawerOpen }) => {
+  const { t } = useTranslation();
   const theme = useTheme();
   return (
     <Drawer
@@ -22,12 +24,12 @@ export const EditorDrawer: FC<TDrawerProps> = ({ open, toggleDrawerOpen }) => {
     >
       <div className="drawer">
         <IconButton sx={{ borderRadius: '4px' }} onClick={toggleDrawerOpen}>
-          <p>Docs</p>
+          <p>{t('editor-page.docs')}</p>
           {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
         </IconButton>
       </div>
       <Divider />
-      <p>Docs content</p>
+      <p>{t('editor-page.docs')}</p>
     </Drawer>
   );
 };

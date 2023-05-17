@@ -1,7 +1,9 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import './footer.scss';
 
 export const Footer: FC = () => {
+  const { t } = useTranslation();
   return (
     <footer className="footer">
       <div className="footer__team">
@@ -11,7 +13,7 @@ export const Footer: FC = () => {
           target="_blank"
           rel="noreferrer"
         >
-          Vladimir
+          {t('vladimir.name')}
         </a>
         <a
           className="footer__team-link"
@@ -19,7 +21,7 @@ export const Footer: FC = () => {
           target="_blank"
           rel="noreferrer"
         >
-          Marina
+          {t('marina.name')}
         </a>
         <a
           className="footer__team-link"
@@ -27,7 +29,7 @@ export const Footer: FC = () => {
           target="_blank"
           rel="noreferrer"
         >
-          Veronica
+          {t('veronica.name')}
         </a>
       </div>
       <div className="footer__info">
