@@ -9,6 +9,7 @@ import {
   FormControl,
 } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { CustomBtn } from '../custom-btn';
 import './auth-form.scss';
@@ -25,6 +26,7 @@ type FormProps = {
 };
 
 export const AuthForm: FC<FormProps> = ({ title, handleClick }) => {
+  const { t } = useTranslation();
   const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -45,7 +47,7 @@ export const AuthForm: FC<FormProps> = ({ title, handleClick }) => {
     <Box component="form" className="auth-form" autoComplete="off">
       <TextField
         id="outlined-basic"
-        label="Email"
+        label={t('auth-page.email')}
         type="email"
         className="auth-form__input"
         variant="outlined"
@@ -65,7 +67,7 @@ export const AuthForm: FC<FormProps> = ({ title, handleClick }) => {
             root: classes.label,
           }}
         >
-          Password
+          {t('auth-page.password')}
         </InputLabel>
         <OutlinedInput
           id="outlined-adornment-password"

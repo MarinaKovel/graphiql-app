@@ -9,26 +9,20 @@ export const override: CSSProperties = {
   marginTop: '10%',
 };
 
-export const developers = [
-  {
-    name: 'Vladimir',
-    subheader: 'Front-End Developer',
+export const developers = {
+  vladimir: {
     image: vladimircat,
     github: 'https://github.com/Satancrew',
   },
-  {
-    name: 'Marina',
-    subheader: 'Team Lead',
+  marina: {
     image: marinacat,
     github: 'https://github.com/MarinaKovel',
   },
-  {
-    name: 'Veronica',
-    subheader: 'Front-End Developer',
+  veronica: {
     image: veronicacat,
     github: 'https://github.com/Veronchi',
   },
-];
+};
 
 export const introspectionQueryBody = {
   query: `query IntrospectionQuery {

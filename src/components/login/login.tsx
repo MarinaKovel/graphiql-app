@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useTranslation } from 'react-i18next';
 import { AuthForm } from '../auth-form';
 import { auth } from '@/server/firebase';
 import { setUser } from '@/slices/user-slice';
@@ -7,6 +8,7 @@ import { useAppDispatch } from '@/hooks/redux';
 
 export const Login: FC = () => {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   const handleSubmit = (email: string, password: string) => {
     signInWithEmailAndPassword(auth, email, password)
@@ -23,5 +25,5 @@ export const Login: FC = () => {
       });
   };
 
-  return <AuthForm title="sign in" handleClick={handleSubmit} />;
+  return <AuthForm title={t('signIn')} handleClick={handleSubmit} />;
 };

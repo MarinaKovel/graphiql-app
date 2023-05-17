@@ -1,7 +1,9 @@
 import { FC } from 'react';
+import { SyncLoader } from 'react-spinners';
 import { ApolloError } from '@apollo/client';
 import { makeStyles } from '@material-ui/core/styles';
 import { Schema } from '@/server/schema';
+import { override } from '@/utils/const';
 
 type ResponseProps = {
   data: Schema | undefined;
@@ -48,7 +50,7 @@ export const EditorResponseSection: FC<ResponseProps> = (props: ResponseProps) =
 
   return (
     <section className={classes.response}>
-      {loading && <div>Loading</div>}
+      {loading && <SyncLoader cssOverride={override} size={25} />}
       {data ? response : error?.message}
     </section>
   );

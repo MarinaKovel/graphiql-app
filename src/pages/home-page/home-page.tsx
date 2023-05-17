@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Grid, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
 import { DeveloperCards } from '@/components/developer-cards';
 import homelogo from '@/assets/images/homelogo.png';
 import './home-page.scss';
@@ -46,18 +47,14 @@ const useStyles = makeStyles((theme) => ({
 
 export const Home: FC = () => {
   const classes = useStyles();
+  const { t } = useTranslation();
 
   return (
     <>
       <section className="about-app">
         <div className="about-app__text">
-          <h1 className="about-app__title">A query language for your API</h1>
-          <p className="about-app__info">
-            GraphiQL is a query language for APIs and a runtime for fulfilling those queries with
-            your existing data. GraphiQL provides a complete and understandable description of the
-            data in your API, gives clients the power to ask for exactly what they need and nothing
-            more, makes it easier to evolve APIs over time, and enables powerful developer tools.
-          </p>
+          <h1 className="about-app__title">{t('about-app.title')}</h1>
+          <p className="about-app__info">{t('about-app.info')}</p>
         </div>
         <div className="about-app__logo">
           <img src={homelogo} alt="app_logo" />
@@ -71,16 +68,8 @@ export const Home: FC = () => {
       </Container>
 
       <section className="about-course">
-        <h2 className="about-course__title">About the course</h2>
-        <p className="about-course__info">
-          RS School is free-of-charge and community-based education program conducted by The Rolling
-          Scopes developer community since 2013. Everyone can study at RS School, regardless of age,
-          professional employment, or place of residence. The mentors and trainers of our school are
-          front-end and javascript developers from different companies and countries. RS School
-          operates &#34;Pay it forward&#34; principle. We share our knowledge with students for free
-          at the present time, hoping that in the future they will return to us as mentors and pass
-          on their knowledge to the next generation of students in the same way.
-        </p>
+        <h2 className="about-course__title">{t('about-course.title')}</h2>
+        <p className="about-course__info">{t('about-course.info')}</p>
       </section>
     </>
   );

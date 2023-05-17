@@ -1,6 +1,7 @@
 import { FC, useState, MouseEvent } from 'react';
 import { Avatar, Menu, MenuItem, ListItemIcon, Divider, IconButton, Tooltip } from '@mui/material';
 import Logout from '@mui/icons-material/Logout';
+import { useTranslation } from 'react-i18next';
 import { logout } from '@/server/firebase';
 import { removeUser } from '@/slices/user-slice';
 import { useAppDispatch } from '@/hooks/redux';
@@ -10,6 +11,7 @@ type MenuProps = {
 };
 
 export const UserMenu: FC<MenuProps> = ({ email }) => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -99,7 +101,7 @@ export const UserMenu: FC<MenuProps> = ({ email }) => {
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          Logout
+          {t('logout')}
         </MenuItem>
       </Menu>
     </>

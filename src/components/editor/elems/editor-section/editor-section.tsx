@@ -1,5 +1,6 @@
 import { FC, useRef, useState } from 'react';
 import { TextareaAutosize } from '@mui/base';
+import { useTranslation } from 'react-i18next';
 import { IconButton, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/ArrowRight';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -65,6 +66,8 @@ export const EditorSection: FC = () => {
     }
   };
 
+  const { t } = useTranslation();
+
   return (
     <>
       <section className={classes.editorSection}>
@@ -82,7 +85,7 @@ export const EditorSection: FC = () => {
             sx={{ height: '20px', minHeight: '20px' }}
             expandIcon={<ExpandMoreIcon />}
           >
-            <p>Variables</p>
+            <p>{t('editor-page.variables')}</p>
           </AccordionSummary>
           <AccordionDetails>
             <TextareaAutosize maxRows={5} className={classes.edit} ref={variablesRef} />
