@@ -1,5 +1,6 @@
 import { useState, useEffect, FC } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ToggleDayNight } from '../toggle-day-night/toggle-day-night';
 import logo from '@/assets/icons/logo2.png';
 import { RoutePath } from '@/utils/enum';
@@ -9,8 +10,10 @@ import { useAppSelector } from '@/hooks/redux';
 import './header.scss';
 
 export const Header: FC = () => {
+  const { t } = useTranslation();
   const [isUpOfPage, setIsUpOfPage] = useState<boolean>(true);
   const { isAuth, email } = useAppSelector((state) => state.user);
+  const language = localStorage.getItem('lang') || 'en';
 
   useEffect(() => {
     const handleScroll = () => (window.scrollY === 0 ? setIsUpOfPage(true) : setIsUpOfPage(false));
@@ -29,11 +32,11 @@ export const Header: FC = () => {
       <nav className="header__nav">
         <div className="header__links">
           <NavLink className="header__link" to={RoutePath.HOME}>
-            Home
+            {t('home')}
           </NavLink>
           {isAuth && (
             <NavLink className="header__link" to={RoutePath.EDITOR}>
-              Editor
+              GraphiQL
             </NavLink>
           )}
         </div>
@@ -45,15 +48,16 @@ export const Header: FC = () => {
         ) : (
           <>
             <Link className="header__link" to={RoutePath.LOGIN} state={{ isLogin: true }}>
-              Sign In
+              {t('signIn')}
             </Link>
 
             <Link className="header__link" to={RoutePath.SIGN_UP}>
-              Sign Up
+              {t('signUp')}
             </Link>
           </>
         )}
         <LanguageButton />
+        <span className="header__language-status">{language === 'en' ? 'EN' : 'RU'}</span>
         <ToggleDayNight />
       </div>
     </header>

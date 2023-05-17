@@ -5,3 +5,8 @@ export enum RoutePath {
   EDITOR = '/editor',
   NOT_FOUND = '*',
 }
+
+export enum LocalStorageKeys {
+  LANGUAGE = 'lang',
+  THEME = 'theme',
+}

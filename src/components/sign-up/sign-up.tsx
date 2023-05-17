@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { AuthForm } from '../auth-form';
 import { auth } from '@/server/firebase';
@@ -7,6 +8,7 @@ import { useAppDispatch } from '@/hooks/redux';
 
 export const SignUp: FC = () => {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
 
   const handleSubmit = (email: string, password: string) => {
     createUserWithEmailAndPassword(auth, email, password)
@@ -23,5 +25,5 @@ export const SignUp: FC = () => {
       });
   };
 
-  return <AuthForm title="sign up" handleClick={handleSubmit} />;
+  return <AuthForm title={t('signUp')} handleClick={handleSubmit} />;
 };

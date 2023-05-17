@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { getLocalStorage } from '@/utils/local-storage-utils';
+import { LocalStorageKeys } from '@/utils/enum';
 
 type Theme = {
   isNightMode: boolean;
 };
 
-const localStorageTheme = localStorage && localStorage.getItem('theme');
+const localStorageTheme = localStorage && getLocalStorage(LocalStorageKeys.THEME, 'light');
 const isLightTheme = localStorageTheme === 'light';
 
 const initialState: Theme = {

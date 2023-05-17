@@ -1,69 +1,41 @@
 import { FC } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardContent, CardMedia, CardHeader, Link } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
 import { developers } from '@/utils/const';
-import { CustomBtn } from '../custom-btn';
+import { DeveloperCard } from '../developer-card/developer-card';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
     marginTop: '40px',
   },
-  buttonBlock: {
-    display: 'flex',
-    justifyContent: 'center',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[700],
-  },
-  card: {
-    flex: '1 1 300px',
-    margin: 20,
-    maxWidth: 'calc(33.33% - 40px)',
-    minWidth: 300,
-  },
-  media: {
-    height: 300,
-  },
-  cardHeader: {
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[700],
-  },
-  link: {
-    color: 'white',
-  },
 }));
 
 export const DeveloperCards: FC = () => {
+  const { t } = useTranslation();
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      {developers.map((developer) => (
-        <Card className={classes.card} key={developer.name}>
-          <CardHeader
-            title={developer.name}
-            subheader={developer.subheader}
-            titleTypographyProps={{ align: 'center' }}
-            subheaderTypographyProps={{ align: 'center' }}
-            className={classes.cardHeader}
-          />
-          <CardMedia className={classes.media} image={developer.image} title={developer.name} />
-          <CardContent className={classes.buttonBlock}>
-            <CustomBtn btnType="button">
-              <Link
-                href={developer.github}
-                className={classes.link}
-                target="_blank"
-                rel="noopener"
-                underline="none"
-              >
-                GitHub
-              </Link>
-            </CustomBtn>
-          </CardContent>
-        </Card>
-      ))}
+      <DeveloperCard
+        name={t('vladimir.name')}
+        subtitle={t('vladimir-veronica.title')}
+        image={developers.vladimir.image}
+        github={developers.vladimir.github}
+      />
+      <DeveloperCard
+        name={t('marina.name')}
+        subtitle={t('marina.title')}
+        image={developers.marina.image}
+        github={developers.marina.github}
+      />
+      <DeveloperCard
+        name={t('veronica.name')}
+        subtitle={t('vladimir-veronica.title')}
+        image={developers.veronica.image}
+        github={developers.veronica.github}
+      />
     </div>
   );
 };

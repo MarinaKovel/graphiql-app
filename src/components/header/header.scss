@@ -53,6 +53,14 @@
       &:hover {
         transform: scale(105%);
       }
+
+      &:active {
+        filter: drop-shadow(3px 3px 14px rgb(47, 203, 30)) invert(75%);
+      }
+    }
+
+    &-status {
+      font-weight: $fw-bold;
     }
   }
 
