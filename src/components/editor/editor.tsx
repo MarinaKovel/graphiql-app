@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { EditorSection } from './elems/editor-section';
 import { EditorDrawer } from './elems/editor-drawer';
+import { ErrorBoundary } from '../error-boundary';
 
 export const Editor: FC = () => {
   const [open, setOpen] = useState(false);
@@ -13,7 +14,9 @@ export const Editor: FC = () => {
   return (
     <div className="editor">
       <Box sx={{ display: 'flex', width: '100%', flexWrap: 'wrap' }}>
-        <EditorSection />
+        <ErrorBoundary>
+          <EditorSection />
+        </ErrorBoundary>
         <IconButton
           color="inherit"
           aria-label="open drawer"

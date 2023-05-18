@@ -1,4 +1,5 @@
-import { FC, useEffect, useState, forwardRef } from 'react';
+import { FC, useEffect, useState, forwardRef, SyntheticEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { getSchema } from '@/server/schema';
@@ -10,10 +11,11 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) 
 });
 
 export const EditorPage: FC = () => {
+  const { t } = useTranslation();
   const [schema, { isError }] = getSchema.useFetchSchemaMutation();
   const [open, setOpen] = useState(true);
 
-  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+  const handleClose = (event?: SyntheticEvent | Event, reason?: string) => {
     if (reason === 'clickaway') return;
     setOpen(false);
   };
@@ -28,7 +30,7 @@ export const EditorPage: FC = () => {
       {isError && (
         <Snackbar open={open} autoHideDuration={2500} onClose={handleClose}>
           <Alert onClose={handleClose} severity="error" sx={{ width: '300px' }}>
-            Error to fetch schema!
+            {t('editor-page.error-schema')}
           </Alert>
         </Snackbar>
       )}
