@@ -5,7 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import { FC, Suspense } from 'react';
-import { ThemeProvider, createTheme } from '@material-ui/core';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { SyncLoader } from 'react-spinners';
 import { Home, Auth, EditorPage, NotFound } from '@/pages';
 import { Layout } from '@/components/layout';
@@ -36,12 +36,13 @@ export const App: FC = () => {
   const { isNightMode } = useAppSelector((state) => state.theme);
   const theme = createTheme({
     palette: {
-      type: isNightMode ? 'dark' : 'light',
+      mode: isNightMode ? 'dark' : 'light',
     },
   });
+
   return (
     <ThemeProvider theme={theme}>
-      <Suspense fallback={<SyncLoader cssOverride={override} size={25} />}>
+      <Suspense fallback={<SyncLoader cssOverride={override} color="#768fa3" size={25} />}>
         <RouterProvider router={router} />
       </Suspense>
     </ThemeProvider>

@@ -47,7 +47,7 @@ export const Header: FC = () => {
           <UserMenu email={email} />
         ) : (
           <>
-            <Link className="header__link" to={RoutePath.LOGIN} state={{ isLogin: true }}>
+            <Link className="header__link" to={RoutePath.LOGIN}>
               {t('signIn')}
             </Link>
 
