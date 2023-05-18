@@ -3,7 +3,6 @@ import { Box, IconButton } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { EditorSection } from './elems/editor-section';
-import { EditorResponseSection } from './elems/editor-response-section';
 import { EditorDrawer } from './elems/editor-drawer';
 
 export const Editor: FC = () => {
@@ -15,7 +14,6 @@ export const Editor: FC = () => {
     <div className="editor">
       <Box sx={{ display: 'flex', width: '100%', flexWrap: 'wrap' }}>
         <EditorSection />
-        <EditorResponseSection />
         <IconButton
           color="inherit"
           aria-label="open drawer"

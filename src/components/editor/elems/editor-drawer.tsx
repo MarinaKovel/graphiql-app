@@ -4,12 +4,12 @@ import { IconButton, Drawer, Divider, useTheme } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
-type TDrawerProps = {
+type DrawerProps = {
   open: boolean;
   toggleDrawerOpen: () => void;
 };
 
-export const EditorDrawer: FC<TDrawerProps> = ({ open, toggleDrawerOpen }) => {
+export const EditorDrawer: FC<DrawerProps> = ({ open, toggleDrawerOpen }) => {
   const { t } = useTranslation();
   const theme = useTheme();
   return (

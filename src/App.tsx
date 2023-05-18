@@ -41,7 +41,7 @@ export const App: FC = () => {
   });
   return (
     <ThemeProvider theme={theme}>
-      <Suspense fallback={<SyncLoader cssOverride={override} color="#f4f750" size={25} />}>
+      <Suspense fallback={<SyncLoader cssOverride={override} size={25} />}>
         <RouterProvider router={router} />
       </Suspense>
     </ThemeProvider>

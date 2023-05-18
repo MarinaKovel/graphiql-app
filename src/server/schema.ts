@@ -1,22 +1,22 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import { introspectionQueryBody } from '@/utils/const';
 
-type TSchemaEnumValues = {
+type SchemaEnumValues = {
   deprecationReason: object;
   description: string;
   isDeprecated: boolean;
   name: string;
 };
 
-interface ISchemaFields extends TSchemaEnumValues {
+interface SchemaFields extends SchemaEnumValues {
   args: object[];
   type: object;
 }
 
-type TSchemaType = {
+type SchemaType = {
   description: string;
-  enumValues: TSchemaEnumValues[];
-  fields: ISchemaFields[];
+  enumValues: SchemaEnumValues[];
+  fields: SchemaFields[];
   inputFields: object;
   interfaces: object[];
   kind: string;
@@ -24,12 +24,12 @@ type TSchemaType = {
   possibleTypes: object;
 };
 
-export type TSchema = {
+export type Schema = {
   data: {
     __schema: {
       directives: object[];
       queryType: { name: 'Query' };
-      types: TSchemaType[];
+      types: SchemaType[];
     };
   };
 };
@@ -37,12 +37,12 @@ export type TSchema = {
 export const getSchema = createApi({
   reducerPath: 'schema',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://rickandmortyapi.com/',
+    baseUrl: 'https://rickandmortyapi.graphcdn.app/',
   }),
   endpoints: (build) => ({
-    fetchSchema: build.mutation<TSchema, string>({
+    fetchSchema: build.mutation<Schema, string>({
       query: () => ({
-        url: `graphql`,
+        url: '',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(introspectionQueryBody),
