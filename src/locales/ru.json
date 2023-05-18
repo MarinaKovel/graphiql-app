@@ -26,5 +26,9 @@
   "editor-page.response": "Ответ",
   "editor-page.query": "Запрос",
   "editor-page.docs": "Документация",
-  "editor-page.docs-short": "Дока"
+  "editor-page.docs-short": "Дока",
+  "editor-page.error-schema": "Ошибка загрузки схемы!",
+  "error-boundary.title": "Ошибка",
+  "error-boundary.text": "Для перезагрузки страницы нажмите кнопку.",
+  "error-boundary.button": "Перезагрузить"
 }
