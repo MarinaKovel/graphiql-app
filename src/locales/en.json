@@ -16,6 +16,7 @@
   "error-page.title": " 404 Error ",
   "error-page.text": " Sorry, this page isn`t available ",
   "error-page.info": "Page not found",
+  "error-page.home": "Back to home",
   "auth-page.account": "Already have an account?",
   "auth-page.noaccount": "Don't have an account?",
   "auth-page.create": "Create your Account",

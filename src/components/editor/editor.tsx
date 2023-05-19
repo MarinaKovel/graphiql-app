@@ -13,20 +13,20 @@ export const Editor: FC = () => {
 
   return (
     <div className="editor">
+      <IconButton
+        color="inherit"
+        aria-label="open drawer"
+        edge="start"
+        onClick={toggleDrawerOpen}
+        sx={{ height: '50px', marginTop: '1%', borderRadius: '4px' }}
+      >
+        <ChevronLeftIcon />
+        <h2>{t('editor-page.docs-short')}</h2>
+      </IconButton>
       <Box sx={{ display: 'flex', width: '100%', flexWrap: 'wrap' }}>
         <ErrorBoundary>
           <EditorSection />
         </ErrorBoundary>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="start"
-          onClick={toggleDrawerOpen}
-          sx={{ height: '50px', marginTop: '1%', borderRadius: '4px' }}
-        >
-          <ChevronLeftIcon />
-          <h2>{t('editor-page.docs-short')}</h2>
-        </IconButton>
         <EditorDrawer open={open} toggleDrawerOpen={toggleDrawerOpen} />
       </Box>
     </div>

@@ -16,6 +16,7 @@
   "error-page.title": " 404 Ошибка ",
   "error-page.text": " Извините, данная страница недоступна ",
   "error-page.info": "Страница не найдена",
+  "error-page.home": "Вернуться на главную",
   "auth-page.account": "Уже есть аккаунт?",
   "auth-page.noaccount": "Вы не зарегистрированы?",
   "auth-page.create": "Создать Аккаунт",
