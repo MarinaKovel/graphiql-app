@@ -39,5 +39,9 @@
   "user.not.found": "Check your email address or password",
   "wrong.pswd": "Check your email address or password",
   "exist.email": "Email already in use",
-  "some.error": "Oops! Something go wrong"
+  "some.error": "Oops! Something go wrong",
+  "editor-page.error-schema": "Error to fetch schema!",
+  "error-boundary.title": "Error",
+  "error-boundary.text": "To reload the page press the button.",
+  "error-boundary.button": "Reload"
 }
