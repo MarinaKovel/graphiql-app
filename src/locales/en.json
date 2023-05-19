@@ -26,5 +26,9 @@
   "editor-page.response": "Response",
   "editor-page.query": "Query",
   "editor-page.docs": "Documentation",
-  "editor-page.docs-short": "Docs"
+  "editor-page.docs-short": "Docs",
+  "editor-page.error-schema": "Error to fetch schema!",
+  "error-boundary.title": "Error",
+  "error-boundary.text": "To reload the page press the button.",
+  "error-boundary.button": "Reload"
 }
