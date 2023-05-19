@@ -8,6 +8,7 @@ import './auth-page.scss';
 export const Auth: FC = () => {
   const { t } = useTranslation();
   const location = useLocation();
+  const isLogin = location.pathname.includes(RoutePath.LOGIN);
   const navigate = useNavigate();
   const { isAuth } = useAppSelector((state) => state.user);
 
@@ -19,20 +20,20 @@ export const Auth: FC = () => {
 
   return (
     <section className="auth">
-      <h2 className="auth__title">{location.state ? t('auth-page.log') : t('auth-page.create')}</h2>
+      <h2 className="auth__title">{isLogin ? t('auth-page.log') : t('auth-page.create')}</h2>
       <Outlet />
       <div className="auth__btns">
-        {location.state?.isLogin ? (
+        {isLogin ? (
           <span>
-            {t('auth-page.noaccount')}
+            {t('auth-page.account')}
             <Link className="auth__variant" to={RoutePath.SIGN_UP}>
-              {t('signIn')}
+              {t('signUp')}
             </Link>
           </span>
         ) : (
           <span>
-            {t('auth-page.account')}
-            <Link className="auth__variant" to={RoutePath.LOGIN} state={{ isLogin: true }}>
+            {t('auth-page.noaccount')}
+            <Link className="auth__variant" to={RoutePath.LOGIN}>
               {t('signIn')}
             </Link>
           </span>

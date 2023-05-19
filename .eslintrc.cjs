@@ -15,9 +15,10 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ['src/slices/*.ts', 'vite.config.ts'],
+      files: ['src/slices/*.ts', 'vite.config.ts', 'src/components/auth-form/*.tsx'],
       rules: {
         'import/no-default-export': 'off',
+        'react/jsx-props-no-spreading': 'off',
       },
     },
   ],
