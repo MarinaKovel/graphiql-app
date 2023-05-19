@@ -54,7 +54,7 @@ export const EditorSection: FC = () => {
   const [getAll, { loading, error, data }] = useLazyQuery(GET_RESPONSE);
 
   const handleClick = () => {
-    if (queryRef.current && queryRef.current.value) {
+    if (queryRef.current) {
       setQueryBody(queryRef.current.value);
 
       let variables;
