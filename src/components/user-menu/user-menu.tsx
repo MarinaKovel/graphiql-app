@@ -15,11 +15,11 @@ export const UserMenu: FC<MenuProps> = ({ email }) => {
   const dispatch = useAppDispatch();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+  const avatarChar = email?.slice(0, 1);
+
   const handleClick = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-
-  const avatarChar = email?.slice(0, 1);
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -50,12 +50,18 @@ export const UserMenu: FC<MenuProps> = ({ email }) => {
         id="account-menu"
         open={open}
         onClose={handleClose}
+        sx={{
+          '& .MuiPaper-root': {
+            backgroundColor: 'background.paper',
+          },
+        }}
         PaperProps={{
           elevation: 0,
           sx: {
             overflow: 'visible',
             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
             mt: 1.5,
+
             '& .MuiButtonBase-root': {
               padding: '16px',
               display: 'flex',
@@ -90,14 +96,14 @@ export const UserMenu: FC<MenuProps> = ({ email }) => {
             display: 'flex',
             alignItems: 'center',
             cursor: 'auto',
-            color: 'black',
+            color: '#546a7b',
           }}
         >
           <Avatar />
           {email}
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleLogout}>
+        <MenuItem onClick={handleLogout} sx={{ color: 'GrayText' }}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

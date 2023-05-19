@@ -50,7 +50,7 @@ export const EditorResponseSection: FC<ResponseProps> = (props: ResponseProps) =
 
   return (
     <section className={classes.response}>
-      {loading && <SyncLoader cssOverride={override} size={25} />}
+      {loading && <SyncLoader cssOverride={override} color="#768fa3" size={25} />}
       {data ? response : error?.message}
     </section>
   );
