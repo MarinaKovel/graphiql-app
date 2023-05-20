@@ -13,6 +13,10 @@
   align-items: center;
   z-index: 40;
 
+  @media screen and (max-width: $breakpoint-md-min) {
+    padding: 1.5rem 2vh;
+  }
+
   &__logo {
     display: flex;
     gap: 5px;
@@ -34,11 +38,12 @@
   &__links {
     display: flex;
     justify-content: space-between;
-    gap: 35px;
+    gap: 10px;
   }
 
   &__link {
     @include nav-link;
+    width: max-content;
   }
 
   &__tumblers {
@@ -47,15 +52,13 @@
     gap: 20px;
   }
 
-  &__language {
+  &__language,
+  &__close {
+    display: flex;
+    align-items: center;
     &-img {
-      height: 32px;
       &:hover {
         transform: scale(105%);
-      }
-
-      &:active {
-        filter: drop-shadow(3px 3px 14px rgb(47, 203, 30)) invert(75%);
       }
     }
 

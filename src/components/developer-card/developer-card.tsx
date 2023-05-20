@@ -19,9 +19,8 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     flex: '1 1 300px',
-    margin: 20,
-    maxWidth: 'calc(33.33% - 40px)',
-    minWidth: 300,
+    marginTop: 20,
+    maxWidth: 300,
   },
   media: {
     height: 300,

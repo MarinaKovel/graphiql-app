@@ -16,7 +16,7 @@ export const NotFound: FC = () => {
       <p className="error-page__text">{t('error-page.text')}</p>
 
       <CustomBtn btnType="button">
-        <Link to={RoutePath.NOT_FOUND}>Back to home</Link>
+        <Link to={RoutePath.HOME}> {t('error-page.home')}</Link>
       </CustomBtn>
     </section>
   );

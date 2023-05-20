@@ -1,3 +1,5 @@
+@import '@/styles/constants.scss';
+
 .auth-form {
   display: flex;
   flex-direction: column;
@@ -9,5 +11,9 @@
 
   &__input {
     width: 400px;
+
+    @media screen and (max-width: $breakpoint-sm-min) {
+      width: 300px;
+    }
   }
 }
