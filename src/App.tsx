@@ -5,7 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import { FC, Suspense } from 'react';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { SyncLoader } from 'react-spinners';
 import { Home, Auth, EditorPage, NotFound } from '@/pages';
 import { Layout } from '@/components/layout';
@@ -15,6 +15,7 @@ import { PrivateRoute } from '@/components/private-route';
 import { RoutePath } from './utils/enum';
 import { useAppSelector } from './hooks/redux';
 import { override } from './utils/const';
+import { customDark, customLight } from './utils/customTheme';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,14 +35,9 @@ const router = createBrowserRouter(
 
 export const App: FC = () => {
   const { isNightMode } = useAppSelector((state) => state.theme);
-  const theme = createTheme({
-    palette: {
-      mode: isNightMode ? 'dark' : 'light',
-    },
-  });
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={isNightMode ? customDark : customLight}>
       <Suspense fallback={<SyncLoader cssOverride={override} color="#768fa3" size={25} />}>
         <RouterProvider router={router} />
       </Suspense>

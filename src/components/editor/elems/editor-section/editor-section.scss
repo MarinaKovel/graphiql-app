@@ -1,5 +1,53 @@
+@import '@/styles/constants.scss';
+@import '@/styles/textarea.scss';
+
 .drawer {
   display: flex;
   align-items: center;
   padding: 1%;
+}
+
+.editor-section {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  width: 43%;
+  min-width: 300px;
+  border-radius: 4px;
+  margin: 1%;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+
+  &__content {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  &__input {
+    @include textarea;
+    background-color: transparent;
+    color: $text-color-title;
+    caret-color: $text-color-title;
+    padding-bottom: 50px;
+
+    &_dark {
+      @include textarea;
+      background-color: transparent;
+      color: #f8f2f2;
+      caret-color: #f8f2f2;
+    }
+  }
+}
+
+.input-light {
+  @include textarea;
+  color: $text-color-title;
+  caret-color: $text-color-title;
+}
+
+.input-dark {
+  @include textarea;
+  background-color: #cdcdc7;
 }

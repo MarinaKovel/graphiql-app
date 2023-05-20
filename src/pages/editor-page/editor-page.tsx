@@ -4,7 +4,6 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { getSchema } from '@/server/schema';
 import { Editor } from '@/components/editor';
-import './editor-page.scss';
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" />;
