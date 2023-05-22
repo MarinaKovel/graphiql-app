@@ -31,12 +31,6 @@
 
   &__nav {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  &__links {
-    display: flex;
     justify-content: space-between;
     gap: 10px;
   }

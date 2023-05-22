@@ -40,16 +40,14 @@ export const Header: FC = () => {
         {isAboveSmallScreens && <h2 className="header__title">GraphiQL</h2>}
       </Link>
       <nav className="header__nav">
-        <div className="header__links">
-          <NavLink className="header__link" to={RoutePath.HOME}>
-            {t('home')}
+        <NavLink className="header__link" to={RoutePath.HOME}>
+          {t('home')}
+        </NavLink>
+        {isAuth && (
+          <NavLink className="header__link" to={RoutePath.EDITOR}>
+            GraphiQL
           </NavLink>
-          {isAuth && (
-            <NavLink className="header__link" to={RoutePath.EDITOR}>
-              GraphiQL
-            </NavLink>
-          )}
-        </div>
+        )}
       </nav>
       {isAboveMediumScreens ? (
         <div className="header__tumblers">

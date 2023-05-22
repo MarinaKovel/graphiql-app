@@ -12,7 +12,7 @@ export const Editor: FC = () => {
   const toggleDrawerOpen = () => setOpen(!open);
 
   return (
-    <div className="editor">
+    <Box sx={{ pb: '10px' }}>
       <IconButton
         color="inherit"
         aria-label="open drawer"
@@ -23,12 +23,12 @@ export const Editor: FC = () => {
         <ChevronLeftIcon />
         <h2>{t('editor-page.docs-short')}</h2>
       </IconButton>
-      <Box sx={{ display: 'flex', width: '100%', flexWrap: 'wrap' }}>
+      <Box sx={{ display: 'flex', width: '100%', flexWrap: 'wrap', justifyContent: 'center' }}>
         <ErrorBoundary>
           <EditorSection />
         </ErrorBoundary>
         <EditorDrawer open={open} toggleDrawerOpen={toggleDrawerOpen} />
       </Box>
-    </div>
+    </Box>
   );
 };
