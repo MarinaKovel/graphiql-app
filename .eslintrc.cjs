@@ -50,6 +50,7 @@ module.exports = {
     'import/extensions': 'off',
     'react/function-component-definition': 'off',
     'no-param-reassign': 'off',
+    'no-underscore-dangle': 'off',
   },
   settings: {
     react: {

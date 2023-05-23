@@ -12,9 +12,8 @@ type ResponseProps = {
   error: ApolloError | undefined;
 };
 
-export const EditorResponseSection: FC<ResponseProps> = (props: ResponseProps) => {
+export const EditorResponseSection: FC<ResponseProps> = ({ data, loading, error }) => {
   const { palette } = useTheme();
-  const { data, loading, error } = props;
   const response = `{"data": ${JSON.stringify(data)}"`
     .replace(/{/g, ' {\n')
     .replace(/":/g, '": ')

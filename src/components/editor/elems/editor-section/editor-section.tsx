@@ -74,8 +74,8 @@ export const EditorSection: FC = () => {
           <AccordionDetails>
             <TextareaAutosize
               className={palette.mode.includes('light') ? 'input-light' : 'input-dark'}
-              maxRows={2}
-              minRows={2}
+              maxRows={4}
+              minRows={4}
               ref={variablesRef}
             />
           </AccordionDetails>
