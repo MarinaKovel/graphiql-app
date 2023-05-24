@@ -3,7 +3,7 @@ import { SyncLoader } from 'react-spinners';
 import { ApolloError } from '@apollo/client';
 import { Box, Typography, useTheme } from '@mui/material';
 import { Schema } from '@/server/schema';
-import { override } from '@/utils/const';
+import { override } from '@/utils';
 import './editor-response-section.scss';
 
 type ResponseProps = {

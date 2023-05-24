@@ -7,17 +7,17 @@ import { LanguageButton } from '../language-button';
 import { ToggleDayNight } from '../toggle-day-night';
 import './modal-mobile.scss';
 
-type ModalMobileType = {
+type ModalMobileProps = {
   isAuth: boolean;
   language: string;
   closeModal: (event: React.MouseEvent) => void;
 };
 
-export const ModalMobile: FC<ModalMobileType> = ({
+export const ModalMobile: FC<ModalMobileProps> = ({
   isAuth,
   language,
   closeModal,
-}: ModalMobileType) => {
+}: ModalMobileProps) => {
   const { t } = useTranslation();
   return (
     <div className="modal-mobile">

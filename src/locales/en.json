@@ -30,8 +30,6 @@
   "editor-page.docs-short": "Docs",
   "email.required": "Email is required",
   "email.invalid": "Email is invalid",
-  "email.length": "Email must be more than 8 characters",
-  "email.digit": "Email must contain at least one digit",
   "pswd.length": "Password must be more than 8 characters",
   "pswd.required": "Password is required",
   "pswd.digit": "Password must contain at least one digit",
@@ -42,6 +40,7 @@
   "exist.email": "Email already in use",
   "some.error": "Oops! Something go wrong",
   "editor-page.error-schema": "Error to fetch schema!",
+  "editor-page.docs-loading": "Loading Docs",
   "error-boundary.title": "Error",
   "error-boundary.text": "To reload the page press the button.",
   "error-boundary.button": "Reload"

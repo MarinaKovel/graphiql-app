@@ -2,7 +2,7 @@ import { FC } from 'react';
 import FilterTiltShiftIcon from '@mui/icons-material/FilterTiltShift';
 import FilterCenterFocusIcon from '@mui/icons-material/FilterCenterFocus';
 import { useAppSelector } from '@/hooks/redux';
-import { Docs } from '@/utils/enum';
+import { Docs } from '@/utils';
 
 export const EditorDocsSectionType: FC = () => {
   const { type } = useAppSelector((state) => state.currentType);

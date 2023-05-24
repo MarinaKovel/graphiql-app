@@ -1,8 +1,6 @@
 import DayNightToggle from 'react-day-and-night-toggle';
 import { FC } from 'react';
-import { changeCssRootVariables } from '@/utils/change-css-root';
-import { LocalStorageKeys } from '@/utils/enum';
-import { setLocalStorage } from '@/utils/local-storage-utils';
+import { changeCssRootVariables, LocalStorageKeys, setLocalStorage } from '@/utils';
 import { toggleNightMode } from '@/slices/theme-slice';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 
