@@ -42,6 +42,7 @@
   "exist.email": "Email already in use",
   "some.error": "Oops! Something go wrong",
   "editor-page.error-schema": "Error to fetch schema!",
+  "editor-page.docs-loading": "Loading Docs",
   "error-boundary.title": "Error",
   "error-boundary.text": "To reload the page press the button.",
   "error-boundary.button": "Reload"

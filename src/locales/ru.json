@@ -42,6 +42,7 @@
   "exist.email": "Этот электронный адрес уже занят",
   "some.error": "Что-то пошло не так",
   "editor-page.error-schema": "Ошибка загрузки схемы!",
+  "editor-page.docs-loading": "Загрузка документации",
   "error-boundary.title": "Ошибка",
   "error-boundary.text": "Для перезагрузки страницы нажмите кнопку.",
   "error-boundary.button": "Перезагрузить"

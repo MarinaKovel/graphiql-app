@@ -1,38 +1,28 @@
-import { FC, useEffect, useState, forwardRef, SyntheticEvent } from 'react';
+import { FC, useState, Suspense, lazy } from 'react';
+import { Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
-import { getSchema } from '@/server/schema';
-import { Editor } from '@/components/editor';
+import { EditorSection } from '@/components/editor/editor-section';
+import { EditorDocsSection } from '@/components/editor/editor-docs-section';
+import { ErrorBoundary } from '@/components/error-boundary';
 
-const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" />;
-});
+const EditorDocsBtn = lazy(() => import('@/components/editor/editor-docs-btn'));
 
 export const EditorPage: FC = () => {
   const { t } = useTranslation();
-  const [schema, { isError }] = getSchema.useFetchSchemaMutation();
-  const [open, setOpen] = useState(true);
-
-  const handleClose = (event?: SyntheticEvent | Event, reason?: string) => {
-    if (reason === 'clickaway') return;
-    setOpen(false);
-  };
-
-  useEffect(() => {
-    schema('data');
-  }, []);
+  const [open, setOpen] = useState(false);
+  const toggleDrawerOpen = () => setOpen(!open);
 
   return (
-    <>
-      <Editor />
-      {isError && (
-        <Snackbar open={open} autoHideDuration={2500} onClose={handleClose}>
-          <Alert onClose={handleClose} severity="error" sx={{ width: '300px' }}>
-            {t('editor-page.error-schema')}
-          </Alert>
-        </Snackbar>
-      )}
-    </>
+    <Box sx={{ pb: '10px' }}>
+      <Suspense fallback={<p>{t('editor-page.docs-loading')}</p>}>
+        <EditorDocsBtn toggleDrawerOpen={toggleDrawerOpen} />
+      </Suspense>
+      <Box sx={{ display: 'flex', width: '100%', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <ErrorBoundary>
+          <EditorSection />
+        </ErrorBoundary>
+        <EditorDocsSection open={open} toggleDrawerOpen={toggleDrawerOpen} />
+      </Box>
+    </Box>
   );
 };
