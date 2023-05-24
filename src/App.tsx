@@ -11,9 +11,15 @@ import { Layout } from '@/components/layout';
 import { Login } from '@/components/login';
 import { SignUp } from '@/components/sign-up';
 import { PrivateRoute } from '@/components/private-route';
-import { RoutePath } from './utils/enum';
+import {
+  LocalStorageKeys,
+  RoutePath,
+  customDark,
+  customLight,
+  changeCssRootVariables,
+  getLocalStorage,
+} from './utils';
 import { useAppSelector } from './hooks/redux';
-import { customDark, customLight } from './utils/customTheme';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,7 +39,8 @@ const router = createBrowserRouter(
 
 export const App: FC = () => {
   const { isNightMode } = useAppSelector((state) => state.theme);
-
+  const theme = getLocalStorage(LocalStorageKeys.THEME, 'light');
+  changeCssRootVariables(theme);
   return (
     <ThemeProvider theme={isNightMode ? customDark : customLight}>
       <RouterProvider router={router} />

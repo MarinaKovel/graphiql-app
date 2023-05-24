@@ -1,25 +1,13 @@
 import { FC } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
-import { developers } from '@/utils/const';
+import { DeveloperCardsContainer } from './developers-cards.styles';
+import { developers } from '@/utils';
 import { DeveloperCard } from '../developer-card/developer-card';
-
-const useStyles = makeStyles(() => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    marginTop: '40px',
-    width: '100%',
-    gap: '20px',
-  },
-}));
 
 export const DeveloperCards: FC = () => {
   const { t } = useTranslation();
-  const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <DeveloperCardsContainer>
       <DeveloperCard
         name={t('vladimir.name')}
         subtitle={t('vladimir-veronica.title')}
@@ -38,6 +26,6 @@ export const DeveloperCards: FC = () => {
         image={developers.veronica.image}
         github={developers.veronica.github}
       />
-    </div>
+    </DeveloperCardsContainer>
   );
 };

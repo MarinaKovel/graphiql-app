@@ -1,8 +1,7 @@
 import { FC } from 'react';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import { useTranslation } from 'react-i18next';
-import { getLocalStorage, setLocalStorage } from '@/utils/local-storage-utils';
-import { LocalStorageKeys } from '@/utils/enum';
+import { getLocalStorage, setLocalStorage, LocalStorageKeys } from '@/utils';
 
 export const LanguageButton: FC = () => {
   const { i18n } = useTranslation();

@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getLocalStorage } from '@/utils/local-storage-utils';
-import { LocalStorageKeys } from '@/utils/enum';
+import { getLocalStorage, LocalStorageKeys } from '@/utils';
 
 type Theme = {
   isNightMode: boolean;

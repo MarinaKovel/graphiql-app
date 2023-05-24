@@ -2,7 +2,7 @@ import { FC, MouseEvent } from 'react';
 import AdjustIcon from '@mui/icons-material/Adjust';
 import TripOriginIcon from '@mui/icons-material/TripOrigin';
 import { useAppSelector } from '@/hooks/redux';
-import { Docs } from '@/utils/enum';
+import { Docs } from '@/utils';
 
 type EditorDocsSectionFieldsProps = {
   showNext: (event: MouseEvent) => void;

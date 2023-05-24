@@ -18,12 +18,7 @@ export const AuthForm: FC<FormProps> = ({ title, handleClick }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const authSchema = z.object({
-    email: z
-      .string()
-      .nonempty(t('email.required').toString())
-      .email(t('email.invalid').toString())
-      .min(8, t('email.length').toString())
-      .refine((value) => /[0-9]/gm.test(value), t('email.digit').toString()),
+    email: z.string().nonempty(t('email.required').toString()).email(t('email.invalid').toString()),
     password: z
       .string()
       .nonempty(t('pswd.required').toString())

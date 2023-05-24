@@ -11,7 +11,7 @@ import { EditorDocsSectionFields } from './editor-docs-section-fields';
 import { InitialType, setCurrentType, setInitialType } from '@/slices/docs-current-type-slice';
 import { setCurrentArgs } from '@/slices/docs-current-args-slice';
 import { setDocsHistory, clearLastHistory } from '@/slices/docs-history-slice';
-import { setDocsParams } from '@/utils/set-docs-params';
+import { setDocsParams } from '@/utils';
 import './editor-docs-section.scss';
 
 type DrawerProps = {
