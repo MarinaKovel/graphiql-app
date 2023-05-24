@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DeveloperCardsContainer } from './developers-cards.styles';
-import { developers } from '@/utils';
+import { developers } from '@/utils/const';
 import { DeveloperCard } from '../developer-card/developer-card';
 
 export const DeveloperCards: FC = () => {
