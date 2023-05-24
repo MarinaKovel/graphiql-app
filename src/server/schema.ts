@@ -8,12 +8,25 @@ type SchemaEnumValues = {
   name: string;
 };
 
-interface SchemaFields extends SchemaEnumValues {
-  args: object[];
-  type: object;
-}
+type Type = {
+  kind: string;
+  name: string;
+  ofType: Type | null;
+};
 
-type SchemaType = {
+export type Args = {
+  name: string;
+  description: string;
+  defaultValue: object;
+  type: Type;
+};
+
+export type SchemaFields = SchemaEnumValues & {
+  args: Args[];
+  type: Type;
+};
+
+export type SchemaType = {
   description: string;
   enumValues: SchemaEnumValues[];
   fields: SchemaFields[];
@@ -24,7 +37,7 @@ type SchemaType = {
   possibleTypes: object;
 };
 
-export type Schema = {
+type SchemaData = {
   data: {
     __schema: {
       directives: object[];
@@ -32,6 +45,15 @@ export type Schema = {
       types: SchemaType[];
     };
   };
+};
+
+export type Schema = {
+  data: SchemaData;
+  requestId: string;
+  status: string;
+  endpointName: string;
+  fulfilledTimeStamp: number;
+  startedTimeStamp: number;
 };
 
 export const getSchema = createApi({

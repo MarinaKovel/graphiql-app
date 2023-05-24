@@ -3,7 +3,7 @@ import { Box, IconButton } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { EditorSection } from './elems/editor-section';
-import { EditorDrawer } from './elems/editor-drawer';
+import { EditorDocsSection } from './elems/editor-docs-section';
 import { ErrorBoundary } from '../error-boundary';
 
 export const Editor: FC = () => {
@@ -27,7 +27,7 @@ export const Editor: FC = () => {
         <ErrorBoundary>
           <EditorSection />
         </ErrorBoundary>
-        <EditorDrawer open={open} toggleDrawerOpen={toggleDrawerOpen} />
+        <EditorDocsSection open={open} toggleDrawerOpen={toggleDrawerOpen} />
       </Box>
     </Box>
   );
