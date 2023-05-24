@@ -1,6 +1,11 @@
 import { FC } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardContent, CardMedia, CardHeader, Link } from '@material-ui/core';
+import {
+  CardWrapper,
+  Media,
+  CardHeaderWrapper,
+  ButtonBlock,
+  GithubLink,
+} from './developer-card.styles';
 import { CustomBtn } from '../custom-btn';
 
 type DeveloperCardType = {
@@ -10,55 +15,23 @@ type DeveloperCardType = {
   github: string;
 };
 
-const useStyles = makeStyles((theme) => ({
-  buttonBlock: {
-    display: 'flex',
-    justifyContent: 'center',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[700],
-  },
-  card: {
-    flex: '1 1 300px',
-    marginTop: 20,
-    maxWidth: 300,
-  },
-  media: {
-    height: 300,
-  },
-  cardHeader: {
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[700],
-  },
-  link: {
-    color: 'white',
-  },
-}));
-
 export const DeveloperCard: FC<DeveloperCardType> = ({ name, subtitle, image, github }) => {
-  const classes = useStyles();
   return (
-    <Card className={classes.card} key={name}>
-      <CardHeader
+    <CardWrapper>
+      <CardHeaderWrapper
         title={name}
         subheader={subtitle}
         titleTypographyProps={{ align: 'center' }}
-        subheaderTypographyProps={{ align: 'center' }}
-        className={classes.cardHeader}
+        subheaderTypographyProps={{ align: 'center', color: 'inherit' }}
       />
-      <CardMedia className={classes.media} image={image} title={name} />
-      <CardContent className={classes.buttonBlock}>
+      <Media image={image} title={name} />
+      <ButtonBlock>
         <CustomBtn btnType="button">
-          <Link
-            href={github}
-            className={classes.link}
-            target="_blank"
-            rel="noopener"
-            underline="none"
-          >
+          <GithubLink href={github} target="_blank" underline="none">
             Github
-          </Link>
+          </GithubLink>
         </CustomBtn>
-      </CardContent>
-    </Card>
+      </ButtonBlock>
+    </CardWrapper>
   );
 };

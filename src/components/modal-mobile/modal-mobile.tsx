@@ -1,11 +1,10 @@
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import CloseIcon from '@mui/icons-material/Close';
-import { LocalStorageKeys, RoutePath } from '@/utils/enum';
+import { RoutePath } from '@/utils/enum';
 import { LanguageButton } from '../language-button';
 import { ToggleDayNight } from '../toggle-day-night';
-import { changeCssRootVariables } from '@/utils/change-css-root';
-import { getLocalStorage } from '@/utils/local-storage-utils';
 import './modal-mobile.scss';
 
 type ModalMobileType = {
@@ -14,10 +13,12 @@ type ModalMobileType = {
   closeModal: (event: React.MouseEvent) => void;
 };
 
-export const ModalMobile = ({ isAuth, language, closeModal }: ModalMobileType) => {
+export const ModalMobile: FC<ModalMobileType> = ({
+  isAuth,
+  language,
+  closeModal,
+}: ModalMobileType) => {
   const { t } = useTranslation();
-  const theme = getLocalStorage(LocalStorageKeys.THEME, 'light');
-  changeCssRootVariables(theme);
   return (
     <div className="modal-mobile">
       <div className="modal-mobile__button">
