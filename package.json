@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.14",
+    "@codemirror/lang-javascript": "^6.1.8",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.1.0",
@@ -26,6 +27,7 @@
     "@mui/material": "^5.13.0",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/react-redux": "^7.1.25",
+    "@uiw/react-codemirror": "^4.20.2",
     "axios": "^1.4.0",
     "codemirror-graphql": "^2.0.7",
     "eslint-config-airbnb-typescript": "^17.0.0",

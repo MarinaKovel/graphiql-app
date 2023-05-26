@@ -14,11 +14,7 @@ type ResponseProps = {
 
 export const EditorResponseSection: FC<ResponseProps> = ({ data, loading, error }) => {
   const { palette } = useTheme();
-  const response = `{"data": ${JSON.stringify(data)}"`
-    .replace(/{/g, ' {\n')
-    .replace(/":/g, '": ')
-    .replace(/,/g, ',\n')
-    .replace(/}/g, '\n}');
+  const response = `{"data": ${JSON.stringify(data, null, '\t')}"`;
 
   return (
     <Box sx={{ backgroundColor: palette.background.default }} className="response">
