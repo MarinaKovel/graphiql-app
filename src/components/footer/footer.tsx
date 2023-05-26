@@ -1,9 +1,14 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import rssLogoDark from '@/assets/icons/rs-school-dark.svg';
+import rssLogoLight from '@/assets/icons/rs-school-light.svg';
+import { useAppSelector } from '@/hooks/redux';
 import './footer.scss';
 
 export const Footer: FC = () => {
   const { t } = useTranslation();
+  const { isNightMode } = useAppSelector((state) => state.theme);
+
   return (
     <footer className="footer">
       <div className="footer__team">
@@ -36,7 +41,7 @@ export const Footer: FC = () => {
         <a href="https://rs.school/react/" target="_blank" rel="noreferrer">
           <img
             className="footer__info-logo"
-            src="https://rs.school/images/rs_school_js.svg"
+            src={isNightMode ? rssLogoLight : rssLogoDark}
             alt="rs_logo"
           />
         </a>

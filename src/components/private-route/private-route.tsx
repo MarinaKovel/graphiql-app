@@ -6,5 +6,5 @@ import { useAppSelector } from '@/hooks/redux';
 export const PrivateRoute: FC = () => {
   const { isAuth } = useAppSelector((state) => state.user);
 
-  return isAuth ? <Outlet /> : <Navigate to={RoutePath.LOGIN} replace />;
+  return isAuth ? <Outlet /> : <Navigate to={RoutePath.HOME} replace />;
 };

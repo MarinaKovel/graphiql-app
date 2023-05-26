@@ -18,36 +18,40 @@
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
 
   &__content {
+    height: 100%;
     flex: 1 1 auto;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     padding: 10px;
   }
+}
 
-  &__input {
-    @include textarea;
-    background-color: transparent;
-    color: $text-color-title;
-    caret-color: $text-color-title;
-    padding-bottom: 50px;
+.cm-theme-light {
+  height: 100%;
+  width: 100%;
+}
 
-    &_dark {
-      @include textarea;
-      background-color: transparent;
-      color: #f8f2f2;
-      caret-color: #f8f2f2;
-    }
+.cm-editor {
+  height: 100%;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+
+  &.cm-focused {
+    border-radius: 4px;
+    outline: transparent;
   }
 }
 
-.input-light {
-  @include textarea;
-  color: $text-color-title;
-  caret-color: $text-color-title;
+.cm-scroller {
+  .cm-gutters {
+    font-family: 'DM Sans', sans-serif;
+    font-size: $fs-xs;
+    background-color: transparent;
+  }
 }
 
-.input-dark {
-  @include textarea;
-  background-color: #cdcdc7;
+.cm-content {
+  font-family: 'DM Sans', sans-serif;
 }

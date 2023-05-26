@@ -96,14 +96,13 @@ export const UserMenu: FC<MenuProps> = ({ email }) => {
             display: 'flex',
             alignItems: 'center',
             cursor: 'auto',
-            color: '#546a7b',
           }}
         >
           <Avatar />
           {email}
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleLogout} sx={{ color: 'GrayText' }}>
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
