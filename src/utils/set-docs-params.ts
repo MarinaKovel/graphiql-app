@@ -19,7 +19,7 @@ export function setDocsParams(
   const newDescription =
     btn.name === 'showType' ? field?.description : schemaElement?.description || '';
   const newType =
-    btn.name === 'showType' ? field?.type?.name || `${field?.type?.ofType?.name}[]` : '';
+    btn.name === 'showType' ? field?.type?.name || `[${field?.type?.ofType?.name}]` : '';
   const newFields = btn.name === 'showType' ? null : schemaElement?.fields;
   let newCurrentType;
 

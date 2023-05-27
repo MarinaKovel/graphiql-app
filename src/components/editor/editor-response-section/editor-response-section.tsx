@@ -11,10 +11,21 @@ type ResponseProps = {
   loading: boolean;
   error: ApolloError | undefined;
 };
+type NetworkError = Error & {
+  result?: { errors: object };
+};
 
 export const EditorResponseSection: FC<ResponseProps> = ({ data, loading, error }) => {
   const { palette } = useTheme();
   const response = `{"data": ${JSON.stringify(data, null, '\t')}"`;
+  let errorMsg = '';
+  if (error) {
+    errorMsg = `{"errors": ${JSON.stringify(
+      (error?.networkError as NetworkError).result?.errors,
+      null,
+      '\t'
+    )}"`;
+  }
 
   return (
     <Box sx={{ backgroundColor: palette.background.default }} className="response">
@@ -26,7 +37,7 @@ export const EditorResponseSection: FC<ResponseProps> = ({ data, loading, error 
         rickandmortyapi
       </Typography>
       {loading && <SyncLoader cssOverride={override} color="#768fa3" size={25} />}
-      {data ? response : error?.message}
+      {data ? response : errorMsg}
     </Box>
   );
 };

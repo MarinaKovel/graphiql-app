@@ -45,6 +45,8 @@
 }
 
 .cm-scroller {
+  width: 100%;
+
   .cm-gutters {
     font-family: 'DM Sans', sans-serif;
     font-size: $fs-xs;
@@ -54,4 +56,34 @@
 
 .cm-content {
   font-family: 'DM Sans', sans-serif;
+  width: 350px;
+
+  @media screen and (max-width: 1050px) {
+    width: 290px;
+  }
+
+  @media screen and (max-width: 920px) {
+    width: 250px;
+  }
+
+  @media screen and (max-width: 820px) {
+    width: 210px;
+  }
 }
+
+.cm-line {
+  max-width: 99%;
+
+  @media screen and (max-width: 1050px) {
+    width: 290px;
+  }
+
+  @media screen and (max-width: 920px) {
+    width: 250px;
+  }
+
+  @media screen and (max-width: 820px) {
+    width: 210px;
+  }
+}
+

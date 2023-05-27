@@ -41,6 +41,7 @@
   "some.error": "Что-то пошло не так",
   "editor-page.error-schema": "Ошибка загрузки схемы!",
   "editor-page.docs-loading": "Загрузка документации",
+  "editor-page.headers": "Заголовки",
   "error-boundary.title": "Ошибка",
   "error-boundary.text": "Для перезагрузки страницы нажмите кнопку.",
   "error-boundary.button": "Перезагрузить"
