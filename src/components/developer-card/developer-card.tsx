@@ -17,7 +17,7 @@ type DeveloperCardType = {
 
 export const DeveloperCard: FC<DeveloperCardType> = ({ name, subtitle, image, github }) => {
   return (
-    <CardWrapper>
+    <CardWrapper className="developer-card">
       <CardHeaderWrapper
         title={name}
         subheader={subtitle}

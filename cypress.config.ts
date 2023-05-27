@@ -25,4 +25,5 @@ export default defineConfig({
       return config;
     },
   },
+  video: false,
 });

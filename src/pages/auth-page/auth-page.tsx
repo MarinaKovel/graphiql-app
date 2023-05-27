@@ -25,14 +25,14 @@ export const Auth: FC = () => {
       <div className="auth__btns">
         {isLogin ? (
           <span>
-            {t('auth-page.account')}
+            {t('auth-page.noaccount')}
             <Link className="auth__variant" to={RoutePath.SIGN_UP}>
               {t('signUp')}
             </Link>
           </span>
         ) : (
           <span>
-            {t('auth-page.noaccount')}
+            {t('auth-page.account')}
             <Link className="auth__variant" to={RoutePath.LOGIN}>
               {t('signIn')}
             </Link>

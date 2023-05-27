@@ -13,7 +13,8 @@
     "cy:open-unit": "cypress open --component --browser chrome",
     "cy:run-e2e": "cypress run --e2e",
     "cy:run-unit": "cypress run --component",
-    "cy:e2e": "start-server-and-test dev http-get://localhost:5173 cy:open-e2e"
+    "cy:e2e": "start-server-and-test dev http-get://localhost:5173 cy:open-e2e",
+    "cy:coverage": "start-server-and-test dev http://localhost:5173/ cy:run-e2e && npx nyc report --reporter=text-summary"
   },
   "dependencies": {
     "@apollo/client": "^3.7.14",
