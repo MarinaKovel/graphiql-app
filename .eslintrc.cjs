@@ -18,6 +18,7 @@ module.exports = {
       files: [
         'src/slices/*.ts',
         'vite.config.ts',
+        'cypress.config.ts',
         'src/components/auth-form/*.tsx',
         'src/components/editor/editor-docs-btn.tsx',
       ],

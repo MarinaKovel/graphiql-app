@@ -27,6 +27,7 @@ export const EditorDocsSectionType: FC = () => {
             <span className="args">{arg.name}: </span>
             <span className="type-text">
               {arg.type.name || arg.type.ofType?.name || arg.type.ofType?.ofType?.ofType?.name}
+              {arg.type?.kind === 'NON_NULL' && '!'}
             </span>
           </div>
         ))}

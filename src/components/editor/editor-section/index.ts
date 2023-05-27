@@ -1,1 +1,1 @@
-export { EditorSection } from './editor-section';
+export { EditorSection, customHeaders } from './editor-section';
