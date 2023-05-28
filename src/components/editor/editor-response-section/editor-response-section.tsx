@@ -10,12 +10,18 @@ type ResponseProps = {
   data: Schema | undefined;
   loading: boolean;
   error: ApolloError | undefined;
+  errVariables: string;
 };
 type NetworkError = Error & {
   result?: { errors: object };
 };
 
-export const EditorResponseSection: FC<ResponseProps> = ({ data, loading, error }) => {
+export const EditorResponseSection: FC<ResponseProps> = ({
+  data,
+  loading,
+  error,
+  errVariables,
+}) => {
   const { palette } = useTheme();
   const response = `{"data": ${JSON.stringify(data, null, '\t')}"`;
   let errorMsg = '';
@@ -25,6 +31,8 @@ export const EditorResponseSection: FC<ResponseProps> = ({ data, loading, error 
       null,
       '\t'
     )}"`;
+  } else if (errVariables) {
+    errorMsg = errVariables;
   }
 
   return (
@@ -37,7 +45,7 @@ export const EditorResponseSection: FC<ResponseProps> = ({ data, loading, error 
         rickandmortyapi
       </Typography>
       {loading && <SyncLoader cssOverride={override} color="#768fa3" size={25} />}
-      {data ? response : errorMsg}
+      {data && !errVariables ? response : errorMsg}
     </Box>
   );
 };

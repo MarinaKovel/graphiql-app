@@ -9,7 +9,11 @@ import {
 } from '@mui/material';
 import { CustomBtn } from '../custom-btn';
 
-export const PageErrorBoundary: FC = () => {
+type PageErrorBoundaryProps = {
+  errMsg: string;
+};
+
+export const PageErrorBoundary: FC<PageErrorBoundaryProps> = ({ errMsg }) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(true);
 
@@ -22,7 +26,8 @@ export const PageErrorBoundary: FC = () => {
         <DialogTitle id="alert-dialog-title">{t('error-boundary.title')}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            {t('error-boundary.text')}
+            <p>{errMsg}</p>
+            <p>{t('error-boundary.text')}</p>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

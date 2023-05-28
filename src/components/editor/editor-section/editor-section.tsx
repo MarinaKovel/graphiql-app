@@ -77,6 +77,7 @@ export const EditorSection: FC = () => {
   const [variables, setVariables] = useState('');
   const [headers, setHeaders] = useState('');
   const [queryBody, setQueryBody] = useState(`query{characters{info{count}}}`);
+  const [errVariables, setErrVariables] = useState('');
   const { palette } = useTheme();
 
   const GET_RESPONSE = gql`
@@ -85,17 +86,17 @@ export const EditorSection: FC = () => {
   const [getAll, { loading, error, data }] = useLazyQuery(GET_RESPONSE);
 
   const handleClick = () => {
-    setQueryBody(query);
+    try {
+      setQueryBody(query);
 
-    let parseVariables;
-    if (variables) parseVariables = JSON.parse(variables);
+      let parseVariables;
+      if (variables) parseVariables = JSON.parse(variables);
+      if (headers) Object.assign(customHeaders, {}, JSON.parse(headers));
 
-    if (headers) {
-      Object.assign(customHeaders, {});
-      Object.assign(customHeaders, JSON.parse(headers));
+      getAll({ variables: parseVariables });
+    } catch (e: unknown) {
+      if (e instanceof Error) setErrVariables(e.message);
     }
-
-    getAll({ variables: parseVariables });
   };
 
   const handleChangeQuery = (e: string) => setQuery(e);
@@ -148,7 +149,12 @@ export const EditorSection: FC = () => {
           </AccordionDetails>
         </Accordion>
       </Box>
-      <EditorResponseSection data={data} loading={loading} error={error} />
+      <EditorResponseSection
+        data={data}
+        loading={loading}
+        error={error}
+        errVariables={errVariables}
+      />
     </>
   );
 };
