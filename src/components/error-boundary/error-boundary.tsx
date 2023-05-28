@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Component, ReactNode } from 'react';
 import { PageErrorBoundary } from './page-error-boundary';
 
@@ -19,7 +20,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryPropsType, ErrorBounda
     return { hasError: true, errMsg: error.message };
   }
 
-  componentDidCatch(error: Error) {
+  componentDidCatch() {
     console.clear();
   }
 
