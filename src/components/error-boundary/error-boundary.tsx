@@ -1,4 +1,4 @@
-import { Component, ErrorInfo, ReactNode } from 'react';
+import { Component, ReactNode } from 'react';
 import { PageErrorBoundary } from './page-error-boundary';
 
 type ErrorBoundaryPropsType = {
@@ -6,27 +6,28 @@ type ErrorBoundaryPropsType = {
 };
 type ErrorBoundaryStateType = {
   hasError: boolean;
+  errMsg: string;
 };
 
 export class ErrorBoundary extends Component<ErrorBoundaryPropsType, ErrorBoundaryStateType> {
   constructor(props: ErrorBoundaryPropsType) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { hasError: false, errMsg: '' };
   }
 
   static getDerivedStateFromError(error: Error) {
-    return { hasError: true };
+    return { hasError: true, errMsg: error.message };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.log(error, errorInfo);
+  componentDidCatch(error: Error) {
+    console.clear();
   }
 
   render() {
-    const { hasError } = this.state;
+    const { hasError, errMsg } = this.state;
     const { children } = this.props;
     if (hasError) {
-      return <PageErrorBoundary />;
+      return <PageErrorBoundary errMsg={errMsg} />;
     }
 
     return children;
