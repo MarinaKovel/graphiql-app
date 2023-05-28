@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { FC, useEffect, useState, SyntheticEvent } from 'react';
 import { IconButton, Snackbar } from '@mui/material';
 import { useTranslation } from 'react-i18next';
