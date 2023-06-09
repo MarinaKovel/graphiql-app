@@ -19,5 +19,4 @@ i18n.use(initReactI18next).init({
   },
 });
 
-// eslint-disable-next-line import/no-default-export
 export default i18n;

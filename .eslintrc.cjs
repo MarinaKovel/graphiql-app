@@ -21,6 +21,7 @@ module.exports = {
         'cypress.config.ts',
         'src/components/auth-form/*.tsx',
         'src/components/editor/editor-docs-btn.tsx',
+        'src/i18n/i18n.ts',
       ],
       rules: {
         'import/no-default-export': 'off',

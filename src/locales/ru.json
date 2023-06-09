@@ -28,6 +28,7 @@
   "editor-page.query": "Запрос",
   "editor-page.docs": "Документация",
   "editor-page.docs-short": "Дока",
+  "editor-page.query-error": "Пожалуйста, проверьте тело запроса.",
   "email.required": "Поле не может быть пустым",
   "email.invalid": "Электронная почта недействительна",
   "pswd.length": "Пароль должен быть длиннее 8 символов",
