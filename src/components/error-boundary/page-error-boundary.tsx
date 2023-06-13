@@ -26,8 +26,9 @@ export const PageErrorBoundary: FC<PageErrorBoundaryProps> = ({ errMsg }) => {
         <DialogTitle id="alert-dialog-title">{t('error-boundary.title')}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            <p>{errMsg}</p>
-            <p>{t('error-boundary.text')}</p>
+            <span>{errMsg}</span>
+            <br />
+            <span>{t('error-boundary.text')}</span>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

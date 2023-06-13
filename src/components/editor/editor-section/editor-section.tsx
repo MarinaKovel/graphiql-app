@@ -15,6 +15,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/system';
 import { TabPanel, TabsList, Tabs, Tab, tabClasses, buttonClasses } from '@mui/base';
 import { gql, useLazyQuery } from '@apollo/client';
+import { ModalWindow } from '@/components/modal-window';
 import { EditorResponseSection } from '../editor-response-section';
 import './editor-section.scss';
 
@@ -78,6 +79,8 @@ export const EditorSection: FC = () => {
   const [headers, setHeaders] = useState('');
   const [queryBody, setQueryBody] = useState(`query{characters{info{count}}}`);
   const [errVariables, setErrVariables] = useState('');
+  const [isModal, setIsModal] = useState(false);
+  const [message, setMessage] = useState('error');
   const { palette } = useTheme();
 
   const GET_RESPONSE = gql`
@@ -87,13 +90,18 @@ export const EditorSection: FC = () => {
 
   const handleClick = () => {
     try {
-      setQueryBody(query);
+      setQuery(query);
+      if (query && !query.includes('{}') && !query.includes('{ }')) {
+        setQueryBody(query);
+        let parseVariables;
+        if (variables) parseVariables = JSON.parse(variables);
+        if (headers) Object.assign(customHeaders, {}, JSON.parse(headers));
 
-      let parseVariables;
-      if (variables) parseVariables = JSON.parse(variables);
-      if (headers) Object.assign(customHeaders, {}, JSON.parse(headers));
-
-      getAll({ variables: parseVariables });
+        getAll({ variables: parseVariables });
+      } else {
+        setMessage(t('editor-page.query-error').toString());
+        setIsModal(true);
+      }
     } catch (e: unknown) {
       if (e instanceof Error) setErrVariables(e.message);
     }
@@ -109,6 +117,7 @@ export const EditorSection: FC = () => {
         className="editor-section"
         sx={{ backgroundColor: palette.background.default, position: 'relative' }}
       >
+        <ModalWindow isOpen={isModal} message={message} close={setIsModal} />
         <div className="editor-section__content">
           <CodeMirror
             value={query}

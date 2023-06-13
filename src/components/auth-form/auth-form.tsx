@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { TypeOf, z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { errorI18nKeyParser } from '@/utils/error-i18n-parser';
 import { CustomBtn } from '../custom-btn';
 import './auth-form.scss';
 
@@ -18,14 +19,14 @@ export const AuthForm: FC<FormProps> = ({ title, handleClick }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const authSchema = z.object({
-    email: z.string().nonempty(t('email.required').toString()).email(t('email.invalid').toString()),
+    email: z.string().nonempty('email.required').email('email.invalid'),
     password: z
       .string()
-      .nonempty(t('pswd.required').toString())
-      .min(8, t('pswd.length').toString())
-      .refine((value) => /[A-Za-z]/gm.test(value), t('pswd.letter').toString())
-      .refine((value) => /[0-9]/gm.test(value), t('pswd.digit').toString())
-      .refine((value) => /[!-/:-@[-`{-~]/gm.test(value), t('pswd.char').toString()),
+      .nonempty('pswd.required')
+      .min(8, 'pswd.length')
+      .refine((value) => /[A-Za-z]/gm.test(value), 'pswd.letter')
+      .refine((value) => /[0-9]/gm.test(value), 'pswd.digit')
+      .refine((value) => /[!-/:-@[-`{-~]/gm.test(value), 'pswd.char'),
   });
 
   const {
@@ -63,7 +64,7 @@ export const AuthForm: FC<FormProps> = ({ title, handleClick }) => {
         className="auth-form__input"
         variant="outlined"
         error={!!errors.email}
-        helperText={errors.email ? errors.email.message : ''}
+        helperText={errors.email ? errorI18nKeyParser(errors.email.message, t) : ''}
         {...register('email')}
       />
       <TextField
@@ -86,7 +87,7 @@ export const AuthForm: FC<FormProps> = ({ title, handleClick }) => {
             </InputAdornment>
           ),
         }}
-        helperText={errors.password ? errors.password.message : ''}
+        helperText={errors.password ? errorI18nKeyParser(errors.password.message, t) : ''}
         {...register('password')}
       />
 

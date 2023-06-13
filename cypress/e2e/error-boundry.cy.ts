@@ -1,4 +1,4 @@
-describe('Error boundry', () => {
+describe('Error boundary', () => {
   beforeEach(() => {
     cy.visit('/login', {
       onBeforeLoad: (win) => {
@@ -14,10 +14,11 @@ describe('Error boundry', () => {
     cy.url().should('include', '/editor');
   });
 
-  it('Check error boundry', () => {
+  it('Check error boundary', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
       return false;
     });
+    cy.get('[role="textbox"]').first().clear().type('query{\n}', { force: true });
     cy.get('.editor-section__content').find('button').click();
     cy.get('[role="dialog"]').find('h2').should('contain', 'Error');
     cy.get('button').should('contain', 'Reload');

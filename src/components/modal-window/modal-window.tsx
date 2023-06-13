@@ -27,12 +27,20 @@ export const ModalWindow: FC<ModalWindowProps> = ({ isOpen, message, close }) =>
 
   return (
     <Modal
+      role="dialog"
       open={isOpen}
       onClose={handleClose}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
       <Box sx={style}>
+        <Typography
+          sx={{ position: 'absolute', top: '10px', right: '10px' }}
+          className="close"
+          onClick={handleClose}
+        >
+          X
+        </Typography>
         <Typography id="modal-modal-title" variant="h6" component="h2">
           {message}
         </Typography>
