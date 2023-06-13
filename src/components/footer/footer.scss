@@ -1,0 +1,72 @@
+@import '@/styles/constants.scss';
+@import '@/styles/links';
+
+.footer {
+  width: 100%;
+  height: 80px;
+  background: var(#{--component-background-default});
+  box-shadow: var(#{--box-shadow-default});
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 10vh;
+  // position: fixed;
+  // bottom: 0;
+
+  @media screen and (max-width: $breakpoint-md-min) {
+    padding: 1.5rem 2vh;
+  }
+
+  &__team {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: $fs-m;
+    color: var(#{--text-color-default});
+    width: 190px;
+
+    @media screen and (max-width: $breakpoint-lg-min) {
+      flex-direction: column;
+      gap: 3px;
+      width: auto;
+    }
+    @media screen and (max-width: $breakpoint-md-min) {
+      font-size: $fs-s;
+      gap: 5px;
+    }
+
+    &-link {
+      @include nav-link;
+    }
+  }
+
+  &__info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    &-logo {
+      width: 150px;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      transition: 0.3s;
+
+      @media screen and (max-width: $breakpoint-sm-min) {
+        width: 90px;
+      }
+
+      &:hover {
+        transform: scale(105%);
+      }
+    }
+  }
+  &__year {
+    font-size: 1.4rem;
+    font-weight: 600;
+    width: 130px;
+    @media screen and (max-width: $breakpoint-lg-min) {
+      width: auto;
+    }
+  }
+}

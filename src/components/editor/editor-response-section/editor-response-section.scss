@@ -1,0 +1,16 @@
+@import '@/styles/constants.scss';
+@import '@/styles/textarea.scss';
+
+.response {
+  height: 50vh;
+  width: 36%;
+  min-width: 300px;
+  border-radius: 4px;
+  margin: 1%;
+  box-shadow: $box-shadow-light;
+  padding: 5px 15px;
+  overflow: auto;
+  white-space: pre-wrap;
+
+  @include scroll;
+}

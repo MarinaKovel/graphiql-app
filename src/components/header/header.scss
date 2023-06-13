@@ -1,0 +1,69 @@
+@import '@/styles/constants.scss';
+@import '@/styles/links';
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  color: var(#{--text-color-default});
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 1.5rem 10vh;
+  align-items: center;
+  z-index: 40;
+
+  @media screen and (max-width: $breakpoint-md-min) {
+    padding: 1.5rem 2vh;
+  }
+
+  &__logo {
+    display: flex;
+    gap: 5px;
+    color: $text-color-title;
+    line-height: 40px;
+  }
+
+  &__img {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  &__link {
+    @include nav-link;
+    width: max-content;
+  }
+
+  &__tumblers {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__language,
+  &__close {
+    display: flex;
+    align-items: center;
+    &-img {
+      &:hover {
+        transform: scale(105%);
+      }
+    }
+
+    &-status {
+      font-weight: $fw-bold;
+    }
+  }
+
+  &__sticky {
+    background: var(#{--component-background-default});
+    box-shadow: var(#{--box-shadow-default});
+    opacity: 0.95;
+  }
+}

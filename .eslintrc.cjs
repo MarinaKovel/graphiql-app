@@ -1,0 +1,68 @@
+module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+    jest: true,
+    node: true,
+  },
+  extends: [
+    'airbnb',
+    'airbnb-typescript',
+    'airbnb/hooks',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+  ],
+  overrides: [
+    {
+      files: [
+        'src/slices/*.ts',
+        'vite.config.ts',
+        'cypress.config.ts',
+        'src/components/auth-form/*.tsx',
+        'src/components/editor/editor-docs-btn.tsx',
+        'src/i18n/i18n.ts',
+      ],
+      rules: {
+        'import/no-default-export': 'off',
+        'react/jsx-props-no-spreading': 'off',
+      },
+    },
+  ],
+  parser: '@typescript-eslint/parser',
+  root: true,
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json'],
+  },
+  plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks'],
+  rules: {
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'comma-dangle': ['error', 'only-multiline'],
+    'react/prop-types': 'off',
+    'react/display-name': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    '@typescript-eslint/ban-ts-comment': 'error',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-explicit-any': 'error',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'import/no-default-export': 'error',
+    'import/extensions': 'off',
+    'react/function-component-definition': 'off',
+    'no-param-reassign': 'off',
+    'no-underscore-dangle': 'off',
+  },
+  settings: {
+    react: {
+      pragma: 'React',
+      version: 'detect',
+    },
+  },
+};

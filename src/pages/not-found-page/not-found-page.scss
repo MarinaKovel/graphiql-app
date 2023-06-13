@@ -1,0 +1,29 @@
+@import '@/styles/constants.scss';
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+  color: var(#{--text-color-default});
+
+  &__title {
+    font-size: $fs-xxxl;
+    margin: 0;
+  }
+
+  &__text {
+    font-size: $fs-m;
+    width: 50%;
+    margin: 8px auto 24px;
+    text-align: center;
+  }
+
+  &__img {
+    width: 280px;
+  }
+}

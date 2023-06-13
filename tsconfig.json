@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*", "./dist/*", ""],
+    },
+  },
+  "include": [
+    "vite.config.ts",
+    ".eslintrc.cjs",
+    "styled.d.ts",
+    "commitlint.config.js",
+    "cypress.config.ts",
+    "src",
+    "cypress"
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

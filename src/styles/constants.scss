@@ -1,0 +1,108 @@
+// === MIXIN ===
+
+@mixin montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+// === / MIXIN ===
+
+// === FUNCTIONS ===
+
+@function strip-unit($num) {
+  @return calc($num / ($num * 0 + 1px));
+}
+
+@function rem($num) {
+  @return (calc(strip-unit($num) / 16)) * 1rem;
+}
+
+// === / FUNCTIONS ===
+
+// === VARIABLES ===
+
+$base: rem(4px);
+
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semi-bold: 600;
+$fw-bold: 700;
+$fw-very-bold: 800;
+
+$fs-xs: rem(14px);
+$fs-s: rem(16px);
+$fs-m: rem(18px);
+$fs-l: rem(24px);
+$fs-xl: rem(30px);
+$fs-xxl: rem(36px);
+$fs-xxxl: rem(48px);
+
+$transition-01: 0.1s;
+$transition-02: 0.2s;
+$transition-03: 0.3s;
+
+$primary-color-light: rgba(248, 244, 235, 1);
+$secondary-color-light: rgb(238, 232, 219);
+
+$third-color-light: #fdfdff;
+$fourth-color-light: #cdcac3;
+$hover-button-light: #768fa3;
+
+$secondary-dark: #5e5e5e;
+
+// Colors for theme change //
+
+$primary-color-light: rgba(248, 244, 235, 1);
+$secondary-color-light: rgb(238, 232, 219);
+
+$primary-color-dark: #272727;
+$secondary-color-dark: #383838;
+
+$text-color-light: #393d3f;
+$text-color-dark: #f8f2f2;
+$text-color-title: #546a7b;
+$text-color-name: #48aff4;
+$text-color-type:#ffa500;
+$text-color-args: #f74242;
+
+$box-shadow-light: 0px 2px 3px rgba(0, 0, 0, 0.3);
+$box-shadow-dark: 0px 1px 3px rgba(245, 238, 238, 0.3);
+
+// Colors for change theme  //
+
+$breakpoint-xxs-min: 320px;
+$breakpoint-xs-min: 480px;
+$breakpoint-sm-min: 576px;
+$breakpoint-md-min: 768px;
+$breakpoint-lg-min: 992px;
+$breakpoint-xl-min: 1200px;
+$breakpoint-xxl-min: 1440px;
+
+$breakpoint-xxxs-max: $breakpoint-xxs-min - 1px;
+$breakpoint-xxs-max: $breakpoint-xs-min - 1px;
+$breakpoint-xs-max: $breakpoint-sm-min - 1px;
+$breakpoint-sm-max: $breakpoint-md-min - 1px;
+$breakpoint-md-max: $breakpoint-lg-min - 1px;
+$breakpoint-lg-max: $breakpoint-xl-min - 1px;
+$breakpoint-xl-max: $breakpoint-xxl-min - 1px;
+
+// === / VARIABLES ===
+
+// === DARK/LIGHT THEME ===
+:root {
+  --body-background-dark: #{$primary-color-dark};
+  --body-background-light: #{$primary-color-light};
+  --body-background-default: var(#{--body-background-light});
+
+  --component-background-dark: #{$secondary-color-dark};
+  --component-background-light: #{$secondary-color-light};
+  --component-background-default: var(#{--component-background-light});
+
+  --text-color-dark: #{$text-color-dark};
+  --text-color-light: #{$text-color-light};
+  --text-color-default: var(#{--text-color-light});
+
+  --box-shadow-dark: #{$box-shadow-dark};
+  --box-shadow-light: #{$box-shadow-light};
+  --box-shadow-default: var(#{--box-shadow-light});
+}
+// === DARK/LIGHT THEME ===
